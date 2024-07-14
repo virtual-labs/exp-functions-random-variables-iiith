@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
+    <link rel="stylesheet" href="./css/continousrv.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <title>Functions of a Continuous Random Variable</title>
+</head>
+<body>
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-one-quarter v-instruction-title">
+                Tasks
+            </div>
+            <div class="column">
+                <div class="v-tabs">
+                    <ul>
+                        <li class="is-active" id="Task1">
+                            <a>Sigma Algebra</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="columns is-centered">
+            <div class="column">
+                <div class="v-collapsible-instruction-container v-instruction-container">
+                    <div class="v-collapsible is-size-5">
+                        Instructions
+                    </div>
+                    <div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+                        <ul style="list-style: disc;">
+                            <b>Quick theory overview:</b>
+                            <br>
+                            A collection of events, as a subcollection \(mathcal{F}\) of the set of all subsets of \(Omega\),
+                            which satisfy the following properties:
+                            <li>
+                                If \(A \; \& \; B \in \mathcal{F}\), then \(A \cup B \in \mathcal{F}\)
+                            </li>
+                            <li>
+                                If \(A \in \mathcal{F}\), then \(A^{C} \in \mathcal{F}\)
+                            </li>
+                            <li>
+                                \(phi \in \mathcal{F}\)
+                            </li>
+                            is called a Sigma Algebra.
+                            <ul style="list-style: disc;">
+                                <b>Procedure:</b>
+                                <li>
+                                    You are given a sample space \(Omega\) and a collection C containing some events from the sample space.
+                                </li>
+                                <li>
+                                    You have to select the minimum number of subsets of \(Omega\) that should be added to C for it to become
+                                    sigma algebra over \(Omega\).
+                                </li>
+                                <li>
+                                    You can add the events from the given list by clicking on it in the top panel.
+                                </li>
+                                <li>
+                                    You can remove the events from the collection C by clicking on it in the bottom panel.
+                                </li>
+                                <li>
+                                    Once you have selected the events, click on the submit button to check your answer.
+                                </li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="columns is-centered">
+        <div class="column is-11-desktop is-12-tablet is-12-mobile">
+            <div class="v-datalist-container components-list">
+                <br>
+                <p>
+                    Given the sample space \(Omega\) = {a,b,c,d} and a collection C = {{},{a,b,c,d},{a},{b}},
+                    which of the following events should be added to C for it to become a sigma algebra over \(Omega\).
+                </p>
+                <br>
+            </div>
+			<div class="questionContainer">
+				Find the CDF of y = <span id="inputValue">0</span>
+			</div>
+			<div class="image-container">
+				<img src="./images/module3-image.png" alt="Description of Image" class="centered-image">
+			</div>
+        </div>
+    </div>
+    <div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start" style="margin-top:-1.5%">
+        <div class="column is-8-desktop is-12-tablet is-12-mobile">
+            <div class="box-question">
+                
+                <section id="top-bar-2">
+                    <div class="scroll-box-3">
+                        <div id="tile-container-3">
+                            <div class="tile" id="1a" style="display: block;"  onClick="hide('1a', '2a')">
+                                \( F(x_1)\)
+                            </div>
+                            <div class="tile" id="1b" style="display: block;"  onClick="hide('1b', '2b')">
+                                \( F(x_2)\)
+                            </div>
+                            <div class="tile" id="1c" style="display: block;"  onClick="hide('1c', '2c')">
+                                \( F(x_3)\)
+                            </div>
+                            <div class="tile" id="1d" style="display: block;"  onClick="hide('1d', '2d')">
+                                \( F(x_4)\)
+                            </div>
+                            <div class="tile" id="1e" style="display: block;"  onClick="hide('1e', '2e')">
+                                \( F(x_5)\)
+                            </div>
+                            <div class="tile" id="1f" style="display: block;"  onClick="hide('1f', '2f')">
+                                \( F(x_6)\)
+                            </div>
+                            <div class="tile" id="1g" style="display: block;"  onClick="hide('1g', '2g')">
+                                \( F(x_7)\)
+                            </div>
+                            <div class="tile" id="1h" style="display: block;" onClick="hide('1h', '2h')">
+                                \( -F(x_1)\)
+                            </div>
+                            <div class="tile" id="1i" style="display: block;" onClick="hide('1i', '2i')">
+                                \( -F(x_2)\)
+                            </div>
+                            <div class="tile" id="1j" style="display: block;" onClick="hide('1j', '2j')">
+                                \( -F(x_3)\)
+                            </div>
+                            <div class="tile" id="1k" style="display: block;" onClick="hide('1k', '2k')">
+                                \( -F(x_4)\)
+                            </div>
+                            <div class="tile" id="1l" style="display: block;" onClick="hide('1l', '2l')">
+                                \( -F(x_5)\)
+                            </div>
+                            <div class="tile" id="1m" style="display: block;" onClick="hide('1m', '2m')">
+                                \( -F(x_6) \)
+                            </div>
+                            <div class="tile" id="1n" style="display: block;" onClick="hide('1n', '2n')">
+                                \( -F(x_7) \)
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="top-bar-2">
+                    <div class="scroll-box-3">
+                        <div id="tile-container-2">
+                            <div class="tile2" id="2a" style="display: none;" onClick="hide('2a', '1a')">
+                                \( F(x_1)\)
+                            </div>
+                            <div class="tile2" id="2b" style="display: none;" onClick="hide('2b', '1b')">
+                                \( F(x_2)\)
+                            </div>
+                            <div class="tile2" id="2c" style="display: none;" onClick="hide('2c', '1c')">
+                                \( F(x_3)\)
+                            </div>
+                            <div class="tile2" id="2d" style="display: none;" onClick="hide('2d', '1d')">
+                                \( F(x_4)\)
+                            </div>
+                            <div class="tile2" id="2e" style="display: none;" onClick="hide('2e', '1e')">
+                                \( F(x_5)\)
+                            </div>
+                            <div class="tile2" id="2f" style="display: none;" onClick="hide('2f', '1f')">
+                                \( F(x_6)\)
+                            </div>
+                            <div class="tile2" id="2g" style="display: none;" onClick="hide('2g', '1g')">
+                                \( F(x_7)\)
+                            </div>
+                            <div class="tile2" id="2h" style="display: none;" onClick="hide('2h', '1h')">
+                                \( -F(x_1)\)
+                            </div>
+                            <div class="tile2" id="2i" style="display: none;" onClick="hide('2i', '1i')">
+                                \( -F(x_2)\)
+                            </div>
+                            <div class="tile2" id="2j" style="display: none;" onClick="hide('2j', '1j')">
+                                \( -F(x_3)\)
+                            </div>
+                            <div class="tile2" id="2k" style="display: none;" onClick="hide('2k', '1k')">
+                                \( -F(x_4)\)
+                            </div>
+                            <div class="tile2" id="2l" style="display: none;" onClick="hide('2l', '1l')">
+                                \( -F(x_5)\)
+                            </div>
+                            <div class="tile2" id="2m" style="display: none;" onClick="hide('2m', '1m')">
+                                \(-F(x_6) \)
+                            </div>
+                            <div class="tile2" id="2n" style="display: none;" onClick="hide('2n', '1n')">
+                                \( -F(x_7) \)
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <button class="v-button" role="button" onclick="check()">Submit</button>
+                <button class="v-button" role="button" onclick="reset()">Reset</button>
+            </div>
+        </div>
+        <div class="column is-3-desktop is-4-tablet is-12-mobile">
+            <div class="v-datalist-container components-list">
+                <div class="v-datalist-title">
+                    Observations
+                </div>
+                <div id="results">
+                    <span id="observationValue">
+                        Result:
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
+    <script src="./js/continousrv.js"></script>
+</body>
+</html>

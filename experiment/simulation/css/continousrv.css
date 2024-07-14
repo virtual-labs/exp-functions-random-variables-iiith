@@ -1,0 +1,156 @@
+/* Common styles */
+#observations,
+#observations1,
+#observations2,
+#observations3 {
+  font-size: 1.25em;
+}
+
+.tile,
+.tile2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 6em;
+  padding: 0.25em;
+  height: 2em;
+  font-size: 0.9em;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 0.1em 0.4em rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  margin: 1em;
+  border-radius: 10px;
+}
+
+.tile {
+  background-color: bisque;
+  color: black;
+}
+
+.tile:hover {
+  background-color: black;
+  color: bisque;
+}
+
+.tile2 {
+  background-color: black;
+  color: bisque;
+}
+
+.tile2:hover {
+  background-color: bisque;
+  color: black;
+}
+
+.field {
+  padding-top: 1em;
+  display: inline-flex;
+}
+
+/* Media queries */
+@media screen and (min-width: 400px) {
+  .field {
+    margin: 0 1.5em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .field {
+    margin: 0 1em;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .center {
+    text-align: center;
+    font-size: 2em;
+  }
+
+  .scroll-box-2,
+  .scroll-box-4,
+  .scroll-box-6 {
+    overflow-x: scroll;
+  }
+
+  #tile-container-2,
+  #tile-container-4,
+  #tile-container-6 {
+    padding: 0 1em;
+    display: inline-flex;
+  }
+}
+
+@media screen and (min-width: 751px) {
+  .center {
+    text-align: center;
+    font-size: 3em;
+  }
+
+  .scroll-box-2,
+  .scroll-box-4,
+  .scroll-box-6,
+  #tile-container-2,
+  #tile-container-4,
+  #tile-container-6 {
+    display: inline-flex;
+  }
+}
+
+/* Layout styles */
+#top-bar-1,
+#top-bar-2,
+#top-bar-3,
+#drop-panel-1,
+#drop-panel-2,
+#drop-panel-3 {
+  margin: 0 1em 1em;
+  background-color: white;
+  box-shadow: 0 0.1em 0.4em rgba(0, 0, 0, 0.3);
+  min-height: 9em;
+  display: flex;
+  padding-left: 1em;
+}
+
+#tile-container-1,
+#tile-container-3,
+#tile-container-5 {
+  padding: 0 1em;
+  display: inline-flex;
+}
+
+.scroll-box-1,
+.scroll-box-3,
+.scroll-box-5 {
+  overflow-x: scroll;
+}
+
+.questionContainer {
+  border: 2px solid green;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-image {
+  max-width: 50%;
+  max-height: 50%;
+  width: auto;
+  height: auto;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .centered-image {
+    max-width: 100%;
+    max-height: 80%;
+    width: 100%;
+    height: auto;
+  }
+}
