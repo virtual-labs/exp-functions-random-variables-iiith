@@ -1,15 +1,16 @@
 {
-  "name": "exp-functions-of-random-variables-iiith",
+  "name": "validation",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "list-files.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@virtual-labs/buildexp": "^2.0.0"
+    "fs": "^0.0.1-security",
+    "got": "^10.4.0",
+    "jsdom": "^16.2.1"
   }
 }

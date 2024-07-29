@@ -1,46 +1,36 @@
-# Functions of Random variables
+# Functions of Random Variables
 
-If $X$ is a random variable and $Y = g(X)$, then $Y$ itself is a random variable. Thus, we can discuss its PMF, CDF, and expected value. First, note that the range of $Y$ can be written as:
+If $X$ is a random variable and $Y = g(X)$, then $Y$ itself is a random variable. Consequently, we can discuss its PMF, CDF, and expected value. The range of $Y$ can be written as:
 
 $$ R_Y = \{g(x) | x \in R_X\} $$
 
-If we already know the PMF of $X$, to find the PMF of $Y = g(X)$, we can write:
+To find the PMF of $Y = g(X)$ given the PMF of $X$, we can write:
 
-$$ P_Y(y) = P(Y = y) $$
-$$ = P(g(X) = y) $$
-$$ = \sum_{x:g(x) = y} P_X(x) $$
+$$ P_Y(y) = P(Y = y) = P(g(X) = y) = \sum_{x:g(x) = y} P_X(x) $$
 
 Let's look at an example.
 
----
-
 **Example**
 
-Let $X$ be a discrete random variable with $P_X(k) = \frac{1}{5}$ for $k = -1, 0, 1, 2, 3$. Let $Y = 2|X|$. Find the range and PMF of $Y$.
+Let $X$ be a discrete random variable with $P_X(k) = \frac{1}{5}$ for $k = -1, 0, 1, 2, 3$. Let $Y = 2|X|$. Determine the range and PMF of $Y$.
 
 **Solution**
 
 First, note that the range of $Y$ is:
 
-$$ R_Y = \{2|x| \text{ where } x \in R_X\} $$
-$$ = \{0, 2, 4, 6\} $$
+$$ R_Y = \{2|x| \text{ where } x \in R_X\} = \{0, 2, 4, 6\} $$
 
-To find $P_Y(y)$, we need to find $P(Y = y)$ for $y = 0, 2, 4, 6$. We have:
+To find $P_Y(y)$, we need to determine $P(Y = y)$ for $y = 0, 2, 4, 6$. We have:
 
-$$ P_Y(0) = P(Y = 0) = P(2|X| = 0) $$
-$$ = P(X = 0) = \frac{1}{5} $$
+$$ P_Y(0) = P(Y = 0) = P(2|X| = 0) = P(X = 0) = \frac{1}{5} $$
 
-$$ P_Y(2) = P(Y = 2) = P(2|X| = 2) $$
-$$ = P(X = -1 \text{ or } X = 1) $$
-$$ = P_X(-1) + P_X(1) = \frac{1}{5} + \frac{1}{5} = \frac{2}{5} $$
+$$ P_Y(2) = P(Y = 2) = P(2|X| = 2) = P(X = -1 \text{ or } X = 1) = P_X(-1) + P_X(1) = \frac{1}{5} + \frac{1}{5} = \frac{2}{5} $$
 
-$$ P_Y(4) = P(Y = 4) = P(2|X| = 4) $$
-$$ = P(X = 2) + P(X = -2) = \frac{1}{5} $$
+$$ P_Y(4) = P(Y = 4) = P(2|X| = 4) = P(X = 2) = \frac{1}{5} $$
 
-$$ P_Y(6) = P(Y = 6) = P(2|X| = 6) $$
-$$ = P(X = 3) + P(X = -3) = \frac{1}{5} $$
+$$ P_Y(6) = P(Y = 6) = P(2|X| = 6) = P(X = 3) = \frac{1}{5} $$
 
-So, to summarize,
+So, in summary,
 
 $$ P_Y(k) = \begin{cases} 
 \frac{1}{5} & \text{for } k = 0, 4, 6 \\
@@ -48,74 +38,62 @@ $$ P_Y(k) = \begin{cases}
 0 & \text{otherwise}
 \end{cases} $$
 
-
 ## Expected Value of a Function of a Random Variable (LOTUS)
 
-Let $X$ be a discrete random variable with PMF $P_X(x)$, and let $Y = g(X)$. Suppose that we are interested in finding $EY$. One way to find $EY$ is to first find the PMF of $Y$ and then use the expectation formula $EY = E[g(X)] = \sum_{y \in R_Y} y P_Y(y)$. But there is another way which is usually easier. It is called the law of the unconscious statistician (LOTUS).
+Let $X$ be a discrete random variable with PMF $P_X(x)$, and let $Y = g(X)$. Suppose we want to find $E[Y]$. One approach is to first find the PMF of $Y$ and then use the expectation formula $E[Y] = E[g(X)] = \sum_{y \in R_Y} y P_Y(y)$. However, a more convenient method is the law of the unconscious statistician (LOTUS).
 
 **Law of the Unconscious Statistician (LOTUS) for Discrete Random Variables:**
 
 $$ E[g(X)] = \sum_{x_k \in R_X} g(x_k)P_X(x_k) $$
 
-You can prove this by writing $EY = E[g(X)] = \sum_{y \in R_Y} y P_Y(y)$ in terms of $P_X(x)$. In practice, it is usually easier to use LOTUS than direct definition when we need $E[g(X)]$.
+This can be proved by expressing $E[Y] = E[g(X)] = \sum_{y \in R_Y} y P_Y(y)$ in terms of $P_X(x)$. Typically, using LOTUS is easier than the direct definition when we need $E[g(X)]$.
 
-Lets try to prove $E[aX + b] = aEX + b$ (linearity of expectation), here $g(X) = aX + b$, so using LOTUS we have:
+Let's prove $E[aX + b] = aE[X] + b$ (linearity of expectation), where $g(X) = aX + b$:
 
-$$ E[aX + b] = \sum_{x_k \in R_X} (ax_k + b)P_X(x_k) $$
-$$ = \sum_{x_k \in R_X} ax_k P_X(x_k) + \sum_{x_k \in R_X} b P_X(x_k) $$
-$$ = a \sum_{x_k \in R_X} x_k P_X(x_k) + b \sum_{x_k \in R_X} P_X(x_k) $$
-$$ = a EX + b $$
-
+$$ E[aX + b] = \sum_{x_k \in R_X} (ax_k + b)P_X(x_k) = \sum_{x_k \in R_X} ax_k P_X(x_k) + \sum_{x_k \in R_X} b P_X(x_k) = a \sum_{x_k \in R_X} x_k P_X(x_k) + b \sum_{x_k \in R_X} P_X(x_k) = a E[X] + b $$
 
 ## Transformations of Random Variables
 
-Let $Y$ be a random variable, discrete or continuous, and let $g$ be a function from $\mathbb{R}$ to $\mathbb{R}$, which we think of as a transformation. For example, $Y$ could be the height of a randomly chosen person in a given population in inches, and $g$ could be a function that transforms inches to centimeters, i.e., $g(y) = 2.54 \times y$. Then $W = g(Y)$ is also a random variable, but its distribution (pdf), mean, variance, etc. will differ from that of $Y$. Transformations of random variables play a central role in statistics, and we will learn how to work with them in this section.
+For a random variable $Y$, whether discrete or continuous, and a function $g: \mathbb{R} \to \mathbb{R}$, $W = g(Y)$ is also a random variable. Its distribution (pdf), mean, variance, etc., will differ from $Y$'s. Transformations of random variables are crucial in statistics.
 
 #### Theorem 4.1.1
 
-Suppose that $Y$ is a random variable, $g$ is a transformation (i.e., a real function), and $W = g(Y)$. Then:
+Suppose $Y$ is a random variable, $g$ is a transformation, and $W = g(Y)$. Then:
 1. If $Y$ is discrete, with pmf $p_Y$, we have:
 
 $$ E[W] = \sum_{y \in S_Y} g(y) p_Y(y) $$
 
 2. If $Y$ is continuous, with pdf $f_Y$, we have:
 
-$$ E[W] = \int_{-\infty}^{\infty} g(y) f_Y(y) dy $$
+$$ E[W] = \int_{-\infty}^{\infty} g(y) f_Y(y) \, dy $$
 
 #### The cdf-method
 
-The fundamental formula of Theorem 4.1.1 is useful for computing expectations, but it has nothing to say about the distribution of $W = g(Y)$. 
-
-Suppose that we know the cdf $F_Y$ of $Y$ and that we are interested in the distribution of $W = g(Y)$. Using the definition of the cdf $F_W$ of $W$, we can write:
+The fundamental formula of Theorem 4.1.1 helps compute expectations, but it doesn't provide the distribution of $W = g(Y)$. To find the cdf $F_W$ of $W$, given the cdf $F_Y$ of $Y$, we can write:
 
 $$ F_W(w) = P[W \leq w] = P[g(Y) \leq w] $$
 
-The probability on the right is not quite the cdf of $Y$, but we have to rewrite in terms of probabilities involving $Y$
-
-1. If $g$ is strictly increasing, then it admits an inverse function $g^{-1}$ and we can write:
+The probability on the right needs to be expressed in terms of $Y$. If $g$ is strictly increasing, it admits an inverse function $g^{-1}$ and we can write:
 
 $$ F_W(w) = P[g(Y) \leq w] = P[Y \leq g^{-1}(w)] = F_Y(g^{-1}(w)) $$
 
-And we have an expression of $F_W$ in terms of $F_Y$. Once $F_W$ is known, it can be used further to compute the pdf (in the continuous case) or the pmf (in the discrete case), or...
-
-2. A very similar computation can be made if $g$ is strictly decreasing. The only difference is that now:
+For strictly decreasing $g$:
 
 $$ P[g(Y) \leq w] = P[Y \geq g^{-1}(w)] $$
 
-In the continuous case we have $P[Y \geq y] = 1 - F_Y(y)$ (why only in continuous?), so:
+In continuous cases, $P[Y \geq y] = 1 - F_Y(y)$, so:
 
 $$ F_W(w) = P[g(Y) \leq w] = P[Y \geq g^{-1}(w)] = 1 - F_Y(g^{-1}(w)) $$
 
 ## Functions of Two Random Variables
 
-Analysis of a function of two random variables is pretty much the same as for a function of a single random variable. Suppose that you have two discrete random variables $X$ and $Y$, and suppose that $Z = g(X, Y)$, where $g: \mathbb{R}^2 \mapsto \mathbb{R}$. Then, if we are interested in the PMF of $Z$, we can write:
+For two discrete random variables $X$ and $Y$, and $Z = g(X, Y)$, we can determine the PMF of $Z$ as:
 
 $$ P_{Z}(z) = P(g(X, Y) = z) = \sum_{(x_i, y_j) \in A_z} P_{XY}(x_i, y_j), \quad \text{where } A_z = \{(x_i, y_j) \in R_{XY} : g(x_i, y_j) = z\} $$
 
-Note that if we are only interested in $E[g(X, Y)]$, we can directly use LOTUS, without finding $P_Z(z)$:
+For $E[g(X, Y)]$, we can use LOTUS:
 
-
-Law of the unconscious statistician (LOTUS) for two discrete random variables:
+**LOTUS for two discrete random variables:**
 
 $$ E[g(X, Y)] = \sum_{(x_i, y_j) \in R_{XY}} g(x_i, y_j) P_{XY}(x_i, y_j) $$
 
@@ -129,46 +107,17 @@ $$ = \sum_{(x_i, y_j) \in R_{XY}} x_i P_{XY}(x_i, y_j) + \sum_{(x_i, y_j) \in R_
 
 $$ = \sum_{x_i \in R_X} \sum_{y_j \in R_Y} x_i P_{XY}(x_i, y_j) + \sum_{x_i \in R_X} \sum_{y_j \in R_Y} y_j P_{XY}(x_i, y_j) $$
 
-$$ = \sum_{x_i \in R_X} x_i \sum_{y_j \in R_Y} P_{XY}(x_i, y_j) + \sum_{y_j \in R_Y} y_j \sum_{x_i \in R_X} P_{XY}(x_i, y_j) $$
-
-$$ = \sum_{x_i \in R_X} x_i P_X(x_i) + \sum_{y_j \in R_Y} y_j P_Y(y_j) \quad \text{(marginal PMF (Equation 5.1))} $$
+$$ = \sum_{x_i \in R_X} x_i \sum_{y_j \in R_Y} P_{XY}(x_i, y_j) + \sum_{y_j \in R_Y} y_j \sum_{x_i \in R_X} P_{XY}(x_i, y_j) = \sum_{x_i \in R_X} x_i P_X(x_i) + \sum_{y_j \in R_Y} y_j P_Y(y_j) \quad \text{(marginal PMF)} $$
 
 $$ = E[X] + E[Y] $$
 
 ### Functions of Two Continuous Random Variables
 
-When we have two continuous random variables $g(X, Y)$, the ideas are still the same. First, if we are just interested in $E[g(X, Y)]$, we can use LOTUS:
+For two continuous random variables $g(X, Y)$, the concepts are similar. For $E[g(X, Y)]$, we use LOTUS:
 
 **LOTUS for two continuous random variables**:
 
 $$ E[g(X, Y)] = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g(x, y) f_{XY}(x, y) \, dx \, dy $$
-
----
-
-### Example
-
-Let $X$ and $Y$ be two jointly continuous random variables with joint PDF:
-
-$$ f_{XY}(x, y) = \begin{cases} 
-x + y & 0 \leq x, y \leq 1 \\
-0 & \text{otherwise} 
-\end{cases} $$
-
-Find $E[XY^2]$.
-
----
-
-**Solution**
-
-We have:
-
-$$ E[XY^2] = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} (xy^2) f_{XY}(x, y) \, dx \, dy = \int_{0}^{1} \int_{0}^{1} xy^2 (x + y) \, dx \, dy $$
-
-$$ = \int_{0}^{1} \int_{0}^{1} (x^2 y^2 + xy^3) \, dx \, dy = \int_{0}^{1} \left(\frac{1}{3} y^2 + \frac{1}{2} y^3\right) dy $$
-
-$$ = \frac{17}{72} $$
-
----
 
 If $Z = g(X, Y)$ and we are interested in its distribution, we can start by writing:
 
@@ -176,80 +125,10 @@ $$ F_Z(z) = P(Z \leq z) = P(g(X, Y) \leq z) = \iint\limits_D f_{XY}(x, y) \, dx 
 
 where $D = \{(x, y) | g(x, y) \leq z\}$. To find the PDF of $Z$, we differentiate $F_Z(z)$.
 
----
-
-### Example
-
-Let $X$ and $Y$ be two independent $Uniform(0, 1)$ random variables, and $Z = XY$. Find the CDF and PDF of $Z$.
-
----
-
-**Solution**
-
-First note that $R_Z = [0, 1]$. Thus:
-
-$$ F_Z(z) = 0 \quad \text{for } z \leq 0 $$
-
-$$ F_Z(z) = 1 \quad \text{for } z \geq 1 $$
-
-For $0 < z < 1$, we have:
-
-$$ F_Z(z) = P(Z \leq z) = P(XY \leq z) = P\left(X \leq \frac{z}{Y}\right) $$
-
-To get some practice, we will show you two ways to calculate $P\left(X \leq \frac{z}{Y}\right)$ for $0 < z < 1$. The first way is just integrating $f_{XY}(x, y)$ in the region $x \leq \frac{z}{y}$. We have:
-
-$$ P\left(X \leq \frac{z}{Y}\right) = \int_{0}^{1} \int_{0}^{\frac{z}{y}} f_{XY}(x, y) \, dx \, dy = \int_{0}^{1} \int_{0}^{\min(1, \frac{z}{y})} 1 \, dx \, dy $$
-
-$$ = \int_{0}^{1} \min\left(1, \frac{z}{y}\right) \, dy $$
-
-Note that if we let $g(y) = \min\left(1, \frac{z}{y}\right)$, then:
-
-$$ g(y) = \begin{cases} 
-1 & 0 < y < z \\
-\frac{z}{y} & z \leq y \leq 1 
-\end{cases} $$
-
-Therefore:
-
-$$ P\left(X \leq \frac{z}{Y}\right) = \int_{0}^{z} 1 \, dy + \int_{z}^{1} \frac{z}{y} \, dy = z - z \ln z $$
-
-The second way to find $P\left(X \leq \frac{z}{Y}\right)$ is to use the law of total probability. We have:
-
-$$ P(X \leq \frac{z}{Y}) = \int_{0}^{1} P(X \leq \frac{z}{Y} | Y = y) f_Y(y) \, dy = \int_{0}^{1} P\left(X \leq \frac{z}{y}\right) f_Y(y) \, dy $$
-
-Note that:
-
-$$ P\left(X \leq \frac{z}{y}\right) = \begin{cases} 
-1 & 0 < y < z \\
-\frac{z}{y} & z \leq y \leq 1 
-\end{cases} $$
-
-Therefore:
-
-$$ P\left(X \leq \frac{z}{Y}\right) = \int_{0}^{z} 1 \, dy + \int_{z}^{1} \frac{z}{y} \, dy = z - z \ln z $$
-
-Thus, in the end we obtain:
-
-$$ F_Z(z) = \begin{cases} 
-0 & z \leq 0 \\
-z - z \ln z & 0 < z < 1 \\
-1 & z \geq 1 
-\end{cases} $$
-
-You can check that $F_Z(z)$ is a continuous function. To find the PDF, we differentiate the CDF. We have:
-
-$$ f_Z(z) = \begin{cases} 
-- \ln z & 0 < z < 1 \\
-0 & \text{otherwise} 
-\end{cases} $$
-
----
-
 ### The Method of Transformations
 
-When we have functions of two or more jointly continuous random variables, we may be able to use a method similar to the previous theorems to find the resulting PDFs. In particular, we can state the following theorem. While the statement of the theorem might look a little confusing, its application is quite straightforward and we will see a few examples to illustrate the methodology.
+When we have functions of two or more jointly continuous random variables, we may use a method similar to the previous theorems to find the resulting PDFs. Here's the theorem:
 
----
 
 **Theorem**
 
@@ -264,194 +143,29 @@ $$ J = \det \begin{bmatrix}
 \frac{\partial h_2}{\partial z} & \frac{\partial h_2}{\partial w} 
 \end{bmatrix} = \frac{\partial h_1}{\partial z} \cdot \frac{\partial h_2}{\partial w} - \frac{\partial h_2}{\partial z} \cdot \frac{\partial h_1}{\partial w} $$
 
----
-
-### Example
-
-Let $X$ and $Y$ be two independent standard normal random variables. Let also:
-
-$$ \begin{cases} 
-Z = 2X - Y \\
-W = -X + Y 
-\end{cases} $$
-
-Find $f_{ZW}(z, w)$.
-
----
-
-**Solution**
-
-$X$ and $Y$ are jointly continuous and their joint PDF is given by:
-
-$$ f_{XY}(x, y) = f_X(x) f_Y(y) = \frac{1}{2 \pi} \exp\left\{-\frac{x^2 + y^2}{2}\right\}, \quad \text{for all } x, y \in \mathbb{R} $$
-
-Here, the function $g$ is defined by $(z, w) = g(x, y) = (g_1(x, y), g_2(x, y)) = (2x - y, -x + y)$. Solving for $x$ and $y$, we obtain the inverse function $h$:
-
-$$ \begin{cases} 
-x = z + w = h_1(z, w) \\
-y = z + 2w = h_2(z, w) 
-\end{cases} $$
-
-We have:
-
-$$ f_{ZW}(z, w) = f_{XY}(h_1(z, w), h_2(z, w)) |J| = f_{XY}(z + w, z + 2w) |J| $$
-
-where:
-
-$$ J = \det \begin{bmatrix} 
-1 & 1 \\
-1 & 2 
-\end{bmatrix} = 1 $$
-
-Thus, we conclude that:
-
-$$ f_{ZW}(z, w) = f_{XY}(z + w, z + 2w) |J| = \frac{1}{2 \pi} \exp\left\{-\frac{(z + w)^2 + (z + 2w)^2}{2}\right\} = \frac{1}{2 \pi} \exp\left\{-\frac{2z^2 + 5w^2 + 6zw}{2}\right\} $$
-
----
-
-### Example
-
-Let $X$ and $Y$ be two random variables with joint PDF $f_{XY}(x, y)$. Let $Z = X + Y$. Find $f_Z(z)$.
-
----
-
-**Solution**
-
-To apply the theorem, we need two random variables $Z$ and $W$. We can simply define $W = X$. Thus, the function $g$ is given by:
-
-$$ \begin{cases} 
-z = x + y \\
-w = x 
-\end{cases} $$
-
-Then, we can find the inverse transform:
-
-$$ \begin{cases} 
-x = w \\
-y = z - w 
-\end{cases} $$
-
-Then, we have:
-
-$$ |J| = \left| \det \begin{bmatrix} 
-0 & 1 \\
-1 & -1 
-\end{bmatrix} \right| = |-1| = 1 $$
-
-Thus:
-
-$$ f_{ZW}(z, w) = f_{XY}(w, z - w) $$
-
-But since we are interested in the marginal PDF, $f_Z(z)$, we have:
-
-$$ f_Z(z) = \int_{-\infty}^{\infty} f_{XY}(w, z - w) dw $$
-
-Note that, if $X$ and $Y$ are independent, then $f_{XY}(x, y) = f_X(x) f_Y(y)$ and we conclude that:
-
-$$ f_Z(z) = \int_{-\infty}^{\infty} f_X(w) f_Y(z - w) dw $$
-
-This integral is called the **convolution** of $f_X$ and $f_Y$, and we write:
-
-$$ f_Z(z) = f_X(z) \ast f_Y(z) = \int_{-\infty}^{\infty} f_X(w) f_Y(z - w) dw = \int_{-\infty}^{\infty} f_Y(w) f_X(z - w) dw $$
-
----
-
 **Note**: If $X$ and $Y$ are two jointly continuous random variables and $Z = X + Y$, then:
 
-$$ f_Z(z) = \int_{-\infty}^{\infty} f_{XY}(w, z - w) dw = \int_{-\infty}^{\infty} f_{XY}(z - w, w) dw $$
+$$ f_Z(z) = \int_{-\infty}^{\infty} f_{XY}(w, z - w) \, dw = \int_{-\infty}^{\infty} f_{XY}(z - w, w) \, dw $$
 
 If $X$ and $Y$ are also independent, then:
 
-$$ f_Z(z) = f_X(z) \ast f_Y(z) = \int_{-\infty}^{\infty} f_X(w) f_Y(z - w) dw = \int_{-\infty}^{\infty} f_Y(w) f_X(z - w) dw $$
-
----
-
-### Example
-
-Let $X$ and $Y$ be two independent standard normal random variables, and let $Z = X + Y$. Find the PDF of $Z$.
-
----
-
-**Solution**
-
-We have:
-
-$$ f_Z(z) = f_X(z) \ast f_Y(z) = \int_{-\infty}^{\infty} f_X(w) f_Y(z - w) dw $$
-
-$$ = \int_{-\infty}^{\infty} \frac{1}{2 \pi} e^{-\frac{w^2}{2}} e^{-\frac{(z - w)^2}{2}} dw = \frac{1}{\sqrt{4 \pi}} e^{\frac{-z^2}{4}} \int_{-\infty}^{\infty} \frac{1}{\sqrt{\pi}} e^{-(w - \frac{z}{2})^2} dw $$
-
-$$ = \frac{1}{\sqrt{4 \pi}} e^{\frac{-z^2}{4}} $$
-
-where $\int_{-\infty}^{\infty} \frac{1}{\sqrt{\pi}} e^{-(w - \frac{z}{2})^2} dw = 1$ because it is the integral of the PDF of a normal random variable with mean $\frac{z}{2}$ and variance $\frac{1}{2}$. Thus, we conclude that $Z \sim N(0, 2)$. In fact, this is one of the interesting properties of the normal distribution: the sum of two independent normal random variables is also normal. In particular, similar to our calculation above, we can show the following:
-
----
-
-**Theorem**
-
-If $X \sim N(\mu_X, \sigma^2_X)$ and $Y \sim N(\mu_Y, \sigma^2_Y)$ are independent, then:
-
-$$ X + Y \sim N(\mu_X + \mu_Y, \sigma_X^2 + \sigma_Y^2) $$
-
----
-
-We will see an easier proof of this theorem when we discuss **moment generating functions**.
-
-
+$$ f_Z(z) = f_X(z) \ast f_Y(z) = \int_{-\infty}^{\infty} f_X(w) f_Y(z - w) \, dw = \int_{-\infty}^{\infty} f_Y(w) f_X(z - w) \, dw $$
 
 ### Moment Generating Functions
 
-Here, we will introduce and discuss **moment generating functions (MGFs)**. Moment generating functions are useful for several reasons, one of which is their application to analysis of sums of random variables. Before discussing MGFs, let's define moments.
+Moment generating functions (MGFs) are useful for several reasons, particularly for analyzing sums of random variables. Before discussing MGFs, let's define moments.
 
-**Definition**: The **n-th moment** of a random variable $X$ is defined to be $E[X^n]$. The **n-th central moment** of $X$ is defined to be $E[(X - EX)^n]$.
+**Definition**: The **n-th moment** of a random variable $X$ is defined as $E[X^n]$. The **n-th central moment** of $X$ is defined as $E[(X - EX)^n]$.
 
-For example, the first moment is the expected value $E[X]$. The second central moment is the variance of $X$. Similar to mean and variance, other moments give useful information about random variables.
+For example, the first moment is the expected value $E[X]$. The second central moment is the variance of $X$. Other moments provide additional useful information about random variables.
 
 The moment generating function (MGF) of a random variable $X$ is a function $M_X(s)$ defined as:
 
 $$ M_X(s) = E\left[e^{sX}\right] $$
 
-We say that the MGF of $X$ exists if there exists a positive constant $a$ such that $M_X(s)$ is finite for all $s \in [-a, a]$.
+The MGF of $X$ exists if there is a positive constant $a$ such that $M_X(s)$ is finite for all $s \in [-a, a]$.
 
-Before going any further, let's look at an example.
-
----
-
-### Example
-
-For each of the following random variables, find the MGF.
-
-a) $X$ is a discrete random variable, with PMF:
-
-$$ P_X(k) = \begin{cases} 
-\frac{1}{3} & k = 1 \\
-\frac{2}{3} & k = 2 
-\end{cases} $$
-
-b) $Y$ is a $Uniform(0, 1)$ random variable.
-
----
-
-**Solution**
-
-a) For $X$, we have:
-
-$$ M_X(s) = E\left[e^{sX}\right] = \frac{1}{3}e^s + \frac{2}{3}e^{2s} $$
-
-which is well-defined for all $s \in \mathbb{R}$.
-
-b) For $Y$, we can write:
-
-$$ M_Y(s) = E\left[e^{sY}\right] = \int_{0}^{1} e^{sy} dy = \frac{e^s - 1}{s} $$
-
-Note that we always have $M_Y(0) = E[e^{0 \cdot Y}] = 1$, thus $M_Y(s)$ is also well-defined for all $s \in \mathbb{R}$.
-
----
-
-### Why is the MGF useful?
-
-There are basically two reasons for this. First, the MGF of $X$ gives us all moments of $X$. That is why it is called the moment generating function. Second, the MGF (if it exists) uniquely determines the distribution. That is, if two random variables have the same MGF, then they must have the same distribution. Thus, if you find the MGF of a random variable, you have indeed determined its distribution. We will see that this method is very useful when we work on sums of several independent random variables. Let's discuss these in detail.
-
----
+MGFs are useful for two main reasons. First, the MGF of $X$ provides all moments of $X$, hence its name. Second, the MGF (if it exists) uniquely determines the distribution. That is, if two random variables have the same MGF, they must have the same distribution. This method is particularly useful when working on sums of independent random variables.
 
 ### Finding Moments from MGF
 
@@ -469,113 +183,11 @@ $$ M_X(s) = E[e^{sX}] = \sum_{k=0}^{\infty} E[X^k] \frac{s^k}{k!} $$
 
 We conclude that the $k$th moment of $X$ is the coefficient of $\frac{s^k}{k!}$ in the Taylor series of $M_X(s)$. Thus, if we have the Taylor series of $M_X(s)$, we can obtain all moments of $X$.
 
----
-
-### Example
-
-If $Y \sim Uniform(0, 1)$, find $E[Y^k]$ using $M_Y(s)$.
-
----
-
-**Solution**
-
-We found $M_Y(s)$ earlier, so we have:
-
-$$ M_Y(s) = \frac{e^s - 1}{s} = \frac{1}{s} \left(\sum_{k=0}^{\infty} \frac{s^k}{k!} - 1\right) = \frac{1}{s} \sum_{k=1}^{\infty} \frac{s^k}{k!} = \sum_{k=1}^{\infty} \frac{s^{k-1}}{k!} = \sum_{k=0}^{\infty} \frac{1}{k+1} \frac{s^k}{k!} $$
-
-Thus, the coefficient of $\frac{s^k}{k!}$ in the Taylor series for $M_Y(s)$ is $\frac{1}{k+1}$, so:
-
-$$ E[X^k] = \frac{1}{k+1} $$
-
----
-
-We remember from calculus that the coefficient of $\frac{s^k}{k!}$ in the Taylor series of $M_X(s)$ is obtained by taking the $k$th derivative of $M_X(s)$ and evaluating it at $s=0$. Thus, we can write:
-
-$$ E[X^k] = \left. \frac{d^k}{ds^k} M_X(s) \right|_{s=0} $$
-
-We can obtain all moments of $X^k$ from its MGF:
-
-$$ M_X(s) = \sum_{k=0}^{\infty} E[X^k] \frac{s^k}{k!} $$
-
-$$ E[X^k] = \left. \frac{d^k}{ds^k} M_X(s) \right|_{s=0} $$
-
----
-
-### Example
-
-Let $X \sim Exponential(\lambda)$. Find the MGF of $X$, $M_X(s)$, and all of its moments, $E[X^k]$.
-
----
-
-**Solution**
-
-Recall that the PDF of $X$ is:
-
-$$ f_X(x) = \lambda e^{-\lambda x} u(x) $$
-
-where $u(x)$ is the unit step function. We conclude:
-
-$$ M_X(s) = E[e^{sX}] = \int_{0}^{\infty} \lambda e^{-\lambda x} e^{sx} dx = \left[-\frac{\lambda}{\lambda - s} e^{-(\lambda - s) x}\right]_{0}^{\infty}, \quad \text{for } s < \lambda $$
-
-$$ = \frac{\lambda}{\lambda - s}, \quad \text{for } s < \lambda $$
-
-Therefore, $M_X(s)$ exists for all $s < \lambda$. To find the moments of $X$, we can write:
-
-$$ M_X(s) = \frac{\lambda}{\lambda - s} = \frac{1}{1 - \frac{s}{\lambda}} = \sum_{k=0}^{\infty} \left(\frac{s}{\lambda}\right)^k, \quad \text{for } \left|\frac{s}{\lambda}\right| < 1 $$
-
-$$ = \sum_{k=0}^{\infty} \frac{k!}{\lambda^k} \frac{s^k}{k!} $$
-
-We conclude that:
-
-$$ E[X^k] = \frac{k!}{\lambda^k}, \quad \text{for } k = 0, 1, 2, \ldots $$
-
----
-
-### Example
-
-Let $X \sim Poisson(\lambda)$. Find the MGF of $X$, $M_X(s)$.
-
----
-
-**Solution**
-
-We have:
-
-$$ P_X(k) = e^{-\lambda} \frac{\lambda^k}{k!}, \quad \text{for } k = 0, 1, 2, \ldots $$
-
-Thus:
-
-$$ M_X(s) = E[e^{sX}] = \sum_{k=0}^{\infty} e^{sk} e^{-\lambda} \frac{\lambda^k}{k!} = e^{-\lambda} \sum_{k=0}^{\infty} e^{sk} \frac{\lambda^k}{k!} = e^{-\lambda} \sum_{k=0}^{\infty} \frac{(\lambda e^s)^k}{k!} = e^{-\lambda} e^{\lambda e^s} $$
-
-$$ = e^{\lambda (e^s - 1)}, \quad \text{for all } s \in \mathbb{R} $$
-
----
-
-As we discussed previously, the MGF uniquely determines the distribution. This is a very useful fact. We will see examples of how we use it shortly. Right now let's state this fact more precisely as a theorem. We omit the proof here.
-
 ### Theorem
 
-Consider two random variables $X$ and $Y$. Suppose that there exists a positive constant $c$ such that MGFs of $X$ and $Y$ are finite and identical for all values of $s$ in $[-c, c]$. Then,
+Consider two random variables $X$ and $Y$. Suppose there exists a positive constant $c$ such that the MGFs of $X$ and $Y$ are finite and identical for all values of $s$ in $[-c, c]$. Then,
 
 $$ F_X(t) = F_Y(t), \text{ for all } t \in \mathbb{R} $$
-
----
-
-### Example
-
-For a random variable $X$, we know that:
-
-$$ M_X(s) = \frac{2}{2 - s}, \text{ for } s \in (-2, 2) $$
-
-Find the distribution of $X$.
-
----
-
-**Solution**
-
-We note that the above MGF is the MGF of an exponential random variable with $\lambda = 2$. Thus, we conclude that $X \sim Exponential(2)$.
-
----
 
 ### Sum of Independent Random Variables
 
@@ -591,56 +203,96 @@ $$ = E[e^{sX_1}] E[e^{sX_2}] \cdots E[e^{sX_n}] \quad \text{(since the $X_i$'s a
 
 $$ = M_{X_1}(s) M_{X_2}(s) \cdots M_{X_n}(s) $$
 
----
 
-**Note**: If $X_1, X_2, \ldots, X_n$ are $n$ **independent** random variables, then:
 
-$$ M_{X_1 + X_2 + \cdots + X_n}(s) = M_{X_1}(s) M_{X_2}(s) \cdots M_{X_n}(s) $$
 
----
 
-### Example
+# Different Views of a Function of a Random Variable (FRV)
 
-If $X \sim Binomial(n, p)$, find the MGF of $X$.
+There are several different but essentially equivalent views of a function of a random variable (FRV). We will present two of them, highlighting their differences in emphasis.
 
----
+Assume we have an underlying probability space $P = (\Omega, F, P)$ and a random variable $X$ defined on it. Recall that $X$ is a rule that assigns a number $X(\zeta)$ to every $\zeta \in \Omega$. $X$ transforms the $\sigma$-field of events $F$ into the Borel $\sigma$-field $B$ of sets of numbers on the real line. If $R_X$ denotes the subset of the real line reached by $X$ as $\zeta$ ranges over $\Omega$, we can regard $X$ as an ordinary function with domain $\Omega$ and range $R_X$. Now, consider a measurable real function $g(x)$ of the real variable $x$.
 
-**Solution**
+### First View (Y: Ω → RY)
+For every $\zeta \in \Omega$, we generate a number $g(X(\zeta)) = Y(\zeta)$. The rule $Y$, which generates the numbers $\{Y(\zeta)\}$ for random outcomes $\{\zeta \in \Omega\}$, is an RV with domain $\Omega$ and range $R_Y \subset \mathbb{R}$. For every Borel set of real numbers $B_Y$, the set $\{\zeta : Y(\zeta) \in B_Y\}$ is an event. Specifically, the event $\{\zeta : Y(\zeta) \leq y\}$ is equal to the event $\{\zeta : g(X(\zeta)) \leq y\}$.
 
-We can solve this question directly using the definition of MGF, but an easier way to solve it is to use the fact that a binomial random variable can be considered as the sum of $n$ independent and identically distributed (i.i.d.) Bernoulli random variables. Thus, we can write:
+In this view, the emphasis is on $Y$ as a mapping from $\Omega$ to $R_Y$, with the intermediate role of $X$ being suppressed.
 
-$$ X = X_1 + X_2 + \cdots + X_n $$
+### Second View (Input/Output Systems View)
+For every value of $X(\zeta)$ in the range $R_X$, we generate a new number $Y = g(X)$ whose range is $R_Y$. The rule $Y$, whose domain is $R_X$ and range is $R_Y$, is a function of the random variable $X$. Here, the focus is on viewing $Y$ as a mapping from one set of real numbers to another. A model for this view is to regard $X$ as the input to a system with transformation function $g(\cdot)$. For such a system, an input $x$ gets transformed to an output $y = g(x)$, and an input function $X$ gets transformed to an output function $Y = g(X)$.
 
-where $X_i \sim Bernoulli(p)$. Thus,
+In general, we will write $\{Y \leq y\} = \{X \in C_y\}$ in the sequel. For $C_y$ so determined, it follows that:
 
-$$ M_{X}(s) = M_{X_1}(s) M_{X_2}(s) \cdots M_{X_n}(s) = \left(M_{X_1}(s)\right)^n \quad \text{(since the $X_i$'s are i.i.d.)} $$
+$$ P[Y \leq y] = P[X \in C_y] $$
 
-Also,
+If $C_y$ is empty, then the probability of $\{Y \leq y\}$ is zero.
 
-$$ M_{X_1}(s) = E[e^{sX_1}] = p e^s + 1 - p $$
+### Input–Output Model
+When dealing with the input–output model, it is convenient to omit references to an abstract underlying experiment and deal directly with the RVs $X$ and $Y$. In this approach, the observations on $X$ are the underlying experiments, events are Borel subsets of the real line $\mathbb{R}$, and the set function $P[\cdot]$ is replaced by the distribution function $F_X(\cdot)$. Then $Y$ is a mapping (an RV) whose domain is the range $R_X$ of $X, and whose range $R_Y$ is a subset of $\mathbb{R}$. The functional properties of $X$ are ignored in favor of viewing $X$ as a mechanism that gives rise to numerically valued random phenomena. In this view, the domain of $X$ is irrelevant.
 
-Thus, we conclude:
+Additional discussion on the various views of an FRV is available in the literature.
 
-$$ M_{X}(s) = \left(p e^s + 1 - p\right)^n $$
+## Solving Problems of the Type $Y = g(X)$
 
----
+Since the events $\{X < \frac{y-b}{a}\}$ and $\{X \geq \frac{y-b}{a}\}$ are disjoint and their union is the certain event, we obtain from Axiom 3:
 
-### Example
+$$ P\left[X < \frac{y - b}{a}\right] + P\left[X \geq \frac{y - b}{a}\right] = 1 $$
 
-Using MGFs, prove that if $X \sim Binomial(m, p)$ and $Y \sim Binomial(n, p)$ are independent, then $X + Y \sim Binomial(m + n, p)$.
+For a continuous RV:
 
----
+$$ P\left[X < \frac{y - b}{a}\right] = P\left[X \leq \frac{y - b}{a}\right] \quad \text{and} \quad P\left[X \geq \frac{y - b}{a}\right] = P\left[X > \frac{y - b}{a}\right] $$
 
-**Solution**
+Thus, for $a < 0$:
 
-We have:
+$$ F_Y(y) = 1 - F_X\left(\frac{y - b}{a}\right) $$
 
-$$ M_X(s) = \left(p e^s + 1 - p\right)^m $$
+and
 
-$$ M_Y(s) = \left(p e^s + 1 - p\right)^n $$
+$$ f_Y(y) = \frac{1}{|a|} f_X\left(\frac{y - b}{a}\right), \quad a \neq 0 $$
 
-Since $X$ and $Y$ are independent, we conclude that:
+When $X$ is not necessarily continuous, we modify the development for $a < 0$ because it may no longer be true that $P\left[X < \frac{y - b}{a}\right] = P\left[X \leq \frac{y - b}{a}\right]$ due to the possibility that the event $\{X = \frac{y - b}{a}\}$ has a positive probability. The modified statement becomes $P\left[X < \frac{y - b}{a}\right] = P\left[X \leq \frac{y - b}{a}\right] - P[X = \frac{y - b}{a}] = F_X\left(\frac{y - b}{a}\right) - P_X\left(\frac{y - b}{a}\right)$.
 
-$$ M_{X+Y}(s) = M_X(s) M_Y(s) = \left(p e^s + 1 - p\right)^{m + n} $$
+## Solving Problems of the Type $Z = g(X, Y)$
 
-which is the MGF of a $Binomial(m + n, p)$ random variable. Thus, $X + Y \sim Binomial(m + n, p)$.
+In many science and engineering problems, a random variable $Z$ is functionally related to two (or more) random variables $X$ and $Y$. For example:
+
+1. The signal $Z$ at the input of an amplifier consists of a signal $X$ to which independent random noise $Y$ is added. Thus, $Z = X + Y$. If $X$ is also an RV, what is the pdf of $Z$?
+
+Problems of the type $Z = g(X, Y)$ are similar to those of $Y = g(X)$. For $Y = g(X)$, the basic problem was to find the point set $C_y$ such that the events $\{\zeta : Y(\zeta) \leq y\}$ and $\{\zeta : X(\zeta) \in C_y\}$ were equal. The same applies here: find the point set $C_z$ in the $(x, y)$ plane such that the events $\{\zeta : Z(\zeta) \leq z\}$ and $\{\zeta : X(\zeta), Y(\zeta) \in C_z\}$ are equal, indicated by:
+
+$$ \{Z \leq z\} = \{(X, Y) \in C_z\} $$
+
+and
+
+$$ F_Z(z) = \int \int_{(x, y) \in C_z} f_{XY}(x, y) \, dx \, dy $$
+
+The point set $C_z$ is determined from the functional relation $g(x, y) \leq z$. Problems of the type $Z = g(X, Y)$ involve joint densities or distributions and double integrals (or summations) instead of single ones. Hence, computing $f_Z(z)$ is generally more complex than computing $f_Y(y)$ in $Y = g(X)$. However, we can use two labor-saving methods:
+
+1. Solve many $Z = g(X, Y)$-type problems using a "turn-the-crank" formula, an extension of Equation 3.2-23, through the use of auxiliary variables (Section 3.4).
+2. Solve problems of the type $Z = X + Y$ using characteristic functions (Chapter 4).
+
+### Sum of Two Independent Random Variables
+
+The situation modeled by $Z = X + Y$ (and its extension $Z = \sum_{i=1}^N X_i$) occurs frequently in engineering and science. Computing $f_Z(z)$ is perhaps the most important problem of the type $Z = g(X, Y)$. We must find the set of points $C_z$ such that the event $\{Z \leq z\}$ is equal to $\{X + Y \leq z\}$, and thus to $\{(X, Y) \in C_z\}$. The set of points $C_z$ represents the shaded region to the left of the line $x + y \leq z$.
+
+Using Equation 3.3-2, specialized for this case, we obtain:
+
+$$ F_Z(z) = \int \int_{x + y \leq z} f_{XY}(x, y) \, dx \, dy = \int_{-\infty}^{\infty} \left(\int_{-\infty}^{z - y} f_{XY}(x, y) \, dx \right) dy = \int_{-\infty}^{\infty} [G_{XY}(z - y, y) - G_{XY}(-\infty, y)] \, dy $$
+
+where $G_{XY}(x, y)$ is the indefinite integral:
+
+$$ G_{XY}(x, y) = \int f_{XY}(x, y) \, dx $$
+
+The pdf is obtained by differentiating $F_Z(z)$:
+
+$$ f_Z(z) = \frac{dF_Z(z)}{dz} = \int_{-\infty}^{\infty} \frac{d}{dz} [G_{XY}(z - y, y)] \, dy = \int_{-\infty}^{\infty} f_{XY}(z - y, y) \, dy $$
+
+This result is significant, and when $X$ and $Y$ are independent RVs such that $f_{XY}(x, y) = f_X(x) f_Y(y)$, it simplifies to the convolution integral:
+
+$$ f_Z(z) = \int_{-\infty}^{\infty} f_X(z - y) f_Y(y) \, dy $$
+
+This convolution can also be written as:
+
+$$ f_Z(z) = \int_{-\infty}^{\infty} f_X(x) f_Y(z - x) \, dx $$
+
+by using the variable transformation $x = z - y$.
