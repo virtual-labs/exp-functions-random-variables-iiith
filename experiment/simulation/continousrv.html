@@ -21,7 +21,7 @@
                 <div class="v-tabs">
                     <ul>
                         <li class="is-active" id="Task1">
-                            <a>Sigma Algebra</a>
+                            <a>Calculate the CDF of a CRV</a>
                         </li>
                         <li id="Task3" onclick="window.location.href = 'visualizePDF.html';">
                             <a>
@@ -45,39 +45,22 @@
                     </div>
                     <div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
                         <ul style="list-style: disc;">
-                            <b>Quick theory overview:</b>
-                            <br>
-                            A collection of events, as a subcollection \(mathcal{F}\) of the set of all subsets of \(Omega\),
-                            which satisfy the following properties:
+                            <b>Procedure:</b>
                             <li>
-                                If \(A \; \& \; B \in \mathcal{F}\), then \(A \cup B \in \mathcal{F}\)
+                                You are given a graph which plots some function \(Y = g(X)\) of a random variable \(X\)
                             </li>
                             <li>
-                                If \(A \in \mathcal{F}\), then \(A^{C} \in \mathcal{F}\)
+                                You have to build the appropriate CDF of the point \(y_i\) which is generated randomly from the points \(x_i\) as shown in the graph 
                             </li>
                             <li>
-                                \(phi \in \mathcal{F}\)
+                                You can add the CDF values of \(x_i\) from the given list by clicking on it in the top panel.
                             </li>
-                            is called a Sigma Algebra.
-                            <ul style="list-style: disc;">
-                                <b>Procedure:</b>
-                                <li>
-                                    You are given a sample space \(Omega\) and a collection C containing some events from the sample space.
-                                </li>
-                                <li>
-                                    You have to select the minimum number of subsets of \(Omega\) that should be added to C for it to become
-                                    sigma algebra over \(Omega\).
-                                </li>
-                                <li>
-                                    You can add the events from the given list by clicking on it in the top panel.
-                                </li>
-                                <li>
-                                    You can remove the events from the collection C by clicking on it in the bottom panel.
-                                </li>
-                                <li>
-                                    Once you have selected the events, click on the submit button to check your answer.
-                                </li>
-                            </ul>
+                            <li>
+                                You can remove the CDF values of \(x_i\) from the given list by  clicking on it in the bottom panel.
+                            </li>
+                            <li>
+                                Once you have built the answer, click on the submit button to check your answer.
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -87,19 +70,11 @@
     <br>
     <div class="columns is-centered">
         <div class="column is-11-desktop is-12-tablet is-12-mobile">
-            <div class="v-datalist-container components-list">
-                <br>
-                <p>
-                    Given the sample space \(Omega\) = {a,b,c,d} and a collection C = {{},{a,b,c,d},{a},{b}},
-                    which of the following events should be added to C for it to become a sigma algebra over \(Omega\).
-                </p>
-                <br>
-            </div>
 			<div class="questionContainer">
-				Find the CDF of y = <span id="inputValue">0</span>
+				For the given graph \(Y = g(X)\) for some random variable X. Find the CDF of \(Y\) = <span id="inputValue">0</span>
 			</div>
 			<div class="image-container">
-				<img src="./images/module3-image.png" alt="Description of Image" class="centered-image">
+				<img src="./images/CRV.png" alt="Description of Image" class="centered-image">
 			</div>
         </div>
     </div>

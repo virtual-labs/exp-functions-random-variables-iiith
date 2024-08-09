@@ -2,16 +2,14 @@
   "unit-type": "lu",
   "label": "",
   "basedir": ".",
-  "LaTeXinMD": false,
-  "code-assessment": {
-    "include": false,
-    "languages": ["javascript"],
-    "position": 5
-  },
-  "service-worker": "/path/to/service-worker.js",
+  "LaTeXinMD": true,
   "units": [
     {
-      "unit-type": "aim"
+      "unit-type": "aim",
+      "label": "Aim",
+      "content-type": "text",
+      "source": "aim.md",
+      "target": "index.html"
     },
     {
       "target": "theory.html",
@@ -21,11 +19,11 @@
       "content-type": "text"
     },
     {
-      "target": "pretest.html",
-      "source": "pretest.json",
-      "label": "Pretest",
       "unit-type": "task",
-      "content-type": "assesment"
+      "label": "Pretest",
+      "content-type": "assesment",
+      "source": "pretest.json",
+      "target": "pretest.html"
     },
     {
       "target": "procedure.html",
@@ -35,18 +33,18 @@
       "content-type": "text"
     },
     {
-      "target": "simulation.html",
-      "source": "simulation/index.html",
-      "label": "Simulation",
+      "target": "continousrv.html",
+      "source": "simulation/continousrv.html",
+      "label": "Functions of Random Variables",
       "unit-type": "task",
       "content-type": "simulation"
     },
     {
-      "target": "posttest.html",
-      "source": "posttest.json",
-      "label": "Posttest",
       "unit-type": "task",
-      "content-type": "assesment"
+      "label": "Posttest",
+      "content-type": "assesment",
+      "source": "posttest.json",
+      "target": "posttest.html"
     },
     {
       "target": "references.html",
@@ -55,5 +53,6 @@
       "unit-type": "task",
       "content-type": "text"
     }
+    
   ]
 }
