@@ -2,7 +2,7 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "1. A random variable $X$ is uniformly distributed in the interval (0,3). Another random variable $Y = e^{-2X}. The PDF of Y is$",
+      "question": "1. A random variable $X$ is uniformly distributed in the interval (0,3). Another random variable $Y = e^{-2X}$. The PDF of $Y$ is",
       "answers": {
         "a":  "$\\frac{ln Y}{6} \\text{, } e^{-6} \\leq Y \\leq 1 $ ",
         "b":  "$\\frac{ln Y}{8} \\text{, }e^{-2} \\leq Y \\leq 1 $ ",
