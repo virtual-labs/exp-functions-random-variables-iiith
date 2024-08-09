@@ -1,2 +1,1 @@
-## Experiment name
-Functions of a Random Variable
+## Functions of a Random Variable
