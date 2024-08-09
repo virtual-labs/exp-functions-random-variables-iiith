@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
+	<link rel="stylesheet" href="./css/visualizePDF.css">
+	<link rel="stylesheet" href="./css/main.css">
+	<script type="text/javascript" id="MathJax-script" async
+		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+	<title>
+		Functions of RVs
+	</title>
+</head>
+
+<body>
+
+	<div class="container">
+
+
+		<div class="columns is-centered">
+			<div class="columns is-centered">
+				<div class="column is-one-quarter v-instruction-title">
+					Tasks
+				</div>
+				<div class="column">
+					<div class="v-tabs">
+						<ul>
+							<li id="Task1" onclick="window.location.href = 'continousrv.html';">
+								<a>Calculate the CDF of a CRV</a>
+							</li>
+							<li class="is-active" id="Task3">
+								<a>
+									Visualize PDF of function of RV
+								</a>
+							</li>
+							<li id="Task2" onclick="window.location.href = 'calculatePDF.html';">
+								<a>
+									Calculate PDF of funcion of Multiple RV
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="columns is-centered">
+
+			<div class="column">
+				<div class="v-collapsible-instruction-container v-instruction-container">
+					<div class="v-collapsible is-size-5">Instructions</div>
+					<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+						<ul style="list-style: disc;">
+							<b><u>Quick theory overview:</u></b>
+							<ul style="list-style: disc;">
+								<p> To find the cdf \( F_W \) of \( W \),
+									given the cdf \( F_Y \) of \( Y \), we can write:</p>
+
+								<p>
+									\( F_W(w) = P[W \leq w] = P[g(Y) \leq w] \)
+								</p>
+
+								<p>The probability on the right needs to be expressed in terms of \( Y \). If \( g \) is
+									strictly increasing, it admits an inverse function \( g^{-1} \) and we can write:
+								</p>
+
+								<p>
+									\( F_W(w) = P[g(Y) \leq w] = P[Y \leq g^{-1}(w)] = F_Y(g^{-1}(w)) \)
+								</p>
+								<b><u>Procedure:</u></b>
+								<li>
+									In this experiment, we will visualize the PDF of a function of a random variable.
+								</li>
+								<li>
+									Select the function \( Z = g(X) \) to visualize the PDF of \( Z \).
+								</li>
+								<li>
+									There are two options available: Quadratic and Exponential.
+								</li>
+								<li>
+									We plot the PDF of \( X \) and \( Z \) and visualize the transformation. Also, the
+									function \( g(X) \) is plotted for reference.
+								</li>
+								<li>
+									The plot of the PDF of Z is interactive. You can click on any point in the plot and
+									that will show the corresponding points in the PDF of X.
+								</li>
+								<li>
+									The user is able to visualize how the PDF of Z is obtained from the PDF of X here.
+								</li>
+							</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+
+	<section id="page1">
+		<div class="columns is-centered">
+			<div class="column is-11-desktop is-12-tablet is-12-mobile">
+				<div class="v-datalist-container components-list">
+					<br>
+					<p>
+						Click on one of the buttons to view the corresponding PDF of the function of random variable. You can click on the plot of PDF of Z to view the corresponding points in the PDF of X.	
+					</p>
+					<br>
+				</div>
+			</div>
+		</div>
+
+		<div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+			style="margin-top:-1.5%">
+			<div class="column is-8-desktop is-12-tablet is-12-mobile">
+				<div class="box-question">
+					<div id="select-function">
+						<button class="v-button" role="button" id="quadratic-select-button"
+							onclick="selectQuadratic()">Quadratic</button>
+						<button class="v-button" role="button" id="exponential-select-button"
+							onclick="selectExponential()">Exponential</button>
+					</div>
+
+					<div id="canvas-holder">
+						<div>
+							<h2>Z = g(X)</h2>
+							<canvas id="transformationChart"></canvas>
+						</div>
+						<div>
+							<h2>PDF of X</h2>
+							<canvas id="pdfXChart"></canvas>
+						</div>
+						<div>
+							<h2>PDF of Z</h2>
+							<canvas id="pdfZChart"></canvas>
+						</div>
+					</div>
+
+					<div class="button-holder-div">
+						<button class="v-button" role="button" onclick="reset()" id="reset-button"> Reset </button>
+						<!-- <button class="v-button" role="button" onclick="page2()"> Next </button> -->
+					</div>
+				</div>
+			</div>
+
+			<!-- <div class="column is-3-desktop is-4-tablet is-12-mobile">
+				<div class="v-datalist-container components-list">
+					<div class="v-datalist-title">Observations</div>
+					<div id="observations">
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</section>
+
+	<script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="./js/visualizePDF.js"></script>
+</body>
+
+</html>

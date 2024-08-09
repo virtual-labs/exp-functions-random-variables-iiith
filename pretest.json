@@ -1,0 +1,90 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1.Let $X$ be a continuous random variable with PDF $f_X(x) = \\left\\{ \\begin{array}{ll} x^2\\left(2x+\\frac{3}{2}\\right) & \\quad 0 < x \\leq 1\\ 0 & \\quad \text{otherwise} \\end{array} \\right.$",
+      "answers": {
+        "a": "$\\frac{21}{36}$",
+        "b": "$\\frac{61}{36}$",
+        "c": "$\\frac{51}{36}$",
+        "d": " $\\frac{71}{36}$ "
+      },
+      "explanations": {
+        "a": "$\\text{Var}(Y)=\\text{Var}\\left(\\frac{2}{X}+3\\right)=4\\text{Var}\\left(\\frac{1}{X}\\right), \\text{Var}\\left(\\frac{1}{X}\\right)=E\\left[\\frac{1}{X^2}\\right]-(E\\left[\\frac{1}{X}\\right])^2 $ E\\left[\\frac{1}{X}\\right]=\\int_{0}^{1} x\\left(2x+\\frac{3}{2}\\right) dx =\\frac{17}{12} $ E\\left[\\frac{1}{X^2}\\right]=\\int_{0}^{1} \\left(2x+\\frac{3}{2}\\right) dx =\\frac{5}{2} \\text{Var}\\left(\\frac{1}{X}\\right)=E\\left[\\frac{1}{X^2}\\right]-(E\\left[\\frac{1}{X}\\right])^2=\\frac{71}{144} $ \\text{Var}(Y)=4\\text{Var}\\left(\\frac{1}{X}\\right)=\\frac{71}{36}$",
+        "b": "$\\text{Var}(Y)=\\text{Var}\\left(\\frac{2}{X}+3\\right)=4\\text{Var}\\left(\\frac{1}{X}\\right), \\text{Var}\\left(\\frac{1}{X}\\right)=E\\left[\\frac{1}{X^2}\\right]-(E\\left[\\frac{1}{X}\\right])^2 $ E\\left[\\frac{1}{X}\\right]=\\int_{0}^{1} x\\left(2x+\\frac{3}{2}\\right) dx =\\frac{17}{12} $ E\\left[\\frac{1}{X^2}\\right]=\\int_{0}^{1} \\left(2x+\\frac{3}{2}\\right) dx =\\frac{5}{2} \\text{Var}\\left(\\frac{1}{X}\\right)=E\\left[\\frac{1}{X^2}\\right]-(E\\left[\\frac{1}{X}\\right])^2=\\frac{71}{144} $ \\text{Var}(Y)=4\\text{Var}\\left(\\frac{1}{X}\\right)=\\frac{71}{36}$",
+        "c": "$\\text{Var}(Y)=\\text{Var}\\left(\\frac{2}{X}+3\\right)=4\\text{Var}\\left(\\frac{1}{X}\\right), \\text{Var}\\left(\\frac{1}{X}\\right)=E\\left[\\frac{1}{X^2}\\right]-(E\\left[\\frac{1}{X}\\right])^2 $ E\\left[\\frac{1}{X}\\right]=\\int_{0}^{1} x\\left(2x+\\frac{3}{2}\\right) dx =\\frac{17}{12} $ E\\left[\\frac{1}{X^2}\\right]=\\int_{0}^{1} \\left(2x+\\frac{3}{2}\\right) dx =\\frac{5}{2} \\text{Var}\\left(\\frac{1}{X}\\right)=E\\left[\\frac{1}{X^2}\\right]-(E\\left[\\frac{1}{X}\\right])^2=\\frac{71}{144} $ \\text{Var}(Y)=4\\text{Var}\\left(\\frac{1}{X}\\right)=\\frac{71}{36}$",
+        "d": "Correct answer"
+      },
+      "correctAnswer": "d",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "2. Let $A = XY$ denote the area and $L = 2(X + Y)$ the length of the perimeter of a rectangle with length $X$ and height $Y$, such that $X $ and $Y$ are independent, and uniformly distributed on the interval $[0, 1]$. Find  $E[A]$",
+      "answers": {
+      "a": "0.25" ,
+      "b": "0.5",
+      "c": "0.8",
+      "d": "0.4"
+      },
+      "explanations": {
+      "a": " $E[A] = E[XY] = E[X]E[Y] = \\left(\\frac{1}{2}\\right)^2 = \\frac{1}{4}$ ",
+      "b": " $E[A] = E[XY] = E[X]E[Y] = \\left(\\frac{1}{2}\\right)^2 = \\frac{1}{4}$",
+      "c": " Correct answer",
+      "d": " $E[A] = E[XY] = E[X]E[Y] = \\left(\\frac{1}{2}\\right)^2 = \\frac{1}{4}$"
+      },
+      "correctAnswer": "c",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "3. Let $A = XY$ denote the area and $L = 2(X + Y)$ the length of the perimeter of a rectangle with length $X$ and height $Y$, such that $X $ and $Y$ are independent, and uniformly distributed on the interval $[0, 1]$. Find  $E[L]$.",
+      "answers": {
+      "a": "0.5" ,
+      "b": "2",
+      "c": "1",
+      "d": "4"
+      },
+      "explanations": {
+      "a": " $E[L] = 2E[X] + 2E[Y] = 2$ ",
+      "b": " Correct answer",
+      "c": " $E[L] = 2E[X] + 2E[Y] = 2$",
+      "d": " $E[L] = 2E[X] + 2E[Y] = 2$"
+      },
+      "correctAnswer": "b",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "4. Let $A = XY$ denote the area and $L = 2(X + Y)$ the length of the perimeter of a rectangle with length $X$ and height $Y$, such that $X $ and $Y$ are independent, and uniformly distributed on the interval $[0, 1]$. Find $Var(A).$",
+      "answers": {
+      "a": " $\\frac{7}{144}$ " ,
+      "b": " $\\frac{27}{144}$ ",
+      "c": " $\\frac{17}{144}$ ",
+      "d": " $\\frac{37}{144}$ "
+      },
+      "explanations": {
+      "a": " Correct answer",
+      "b": " $E[A^2] = E[X^2Y^2] = E[X^2]E[Y^2] = \\left(\\frac{1}{3}\\right)^2 = \\frac{1}{9}, \\quad \\text{Var}(A) = E[A^2] - E[A]^2 = \\frac{1}{9} - \\frac{1}{16} = \\frac{7}{144}.$",
+      "c": " $E[A^2] = E[X^2Y^2] = E[X^2]E[Y^2] = \\left(\\frac{1}{3}\\right)^2 = \\frac{1}{9}, \\quad \\text{Var}(A) = E[A^2] - E[A]^2 = \\frac{1}{9} - \\frac{1}{16} = \\frac{7}{144}.$",
+      "d": " $E[A^2] = E[X^2Y^2] = E[X^2]E[Y^2] = \\left(\\frac{1}{3}\\right)^2 = \\frac{1}{9}, \\quad \\text{Var}(A) = E[A^2] - E[A]^2 = \\frac{1}{9} - \\frac{1}{16} = \\frac{7}{144}.$"
+      },
+      "correctAnswer": "a",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "5. Let $A = XY$ denote the area and $L = 2(X + Y)$ the length of the perimeter of a rectangle with length $X$ and height $Y$, such that $X $ and $Y$ are independent, and uniformly distributed on the interval $[0, 1]$. Find $Var(L)$.",
+      "answers": {
+      "a": " $\\frac{1}{4}$ " ,
+      "b": " $\\frac{2}{4}$ ",
+      "c": " $\\frac{1}{3}$ ",
+      "d": " $\\frac{2}{3}$ "
+      },
+      "explanations": {
+      "a": "  $Var(L) = \\text{Var}(2(X + Y)) = 4\\text{Var}(X + Y) = 4(\\text{Var}(X) + \\text{Var}(Y)) = 4\\left(\\frac{1}{12} + \\frac{1}{12}\\right) = \\frac{2}{3}$ ",
+      "b": " $Var(L) = \\text{Var}(2(X + Y)) = 4\\text{Var}(X + Y) = 4(\\text{Var}(X) + \\text{Var}(Y)) = 4\\left(\\frac{1}{12} + \\frac{1}{12}\\right) = \\frac{2}{3}$ ",
+      "c": " $Var(L) = \\text{Var}(2(X + Y)) = 4\\text{Var}(X + Y) = 4(\\text{Var}(X) + \\text{Var}(Y)) = 4\\left(\\frac{1}{12} + \\frac{1}{12}\\right) = \\frac{2}{3}$ ",
+      "d": " Correct Answer "
+      },
+      "correctAnswer": "d",
+      "difficulty": "Easy"
+    }
+  ]
+}
