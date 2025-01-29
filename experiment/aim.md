@@ -1,12 +1,12 @@
 # Aim of the Experiment on Functions of Random Variables
 
-The goal of this experiment is to explore and understand the characteristics and behavior of functions of random variables (FRVs). Specifically, the experiment aims to:
+The goal of this experiment is to explore and understand the characteristics and behavior of functions of random variables. Specifically, the experiment aims to:
 
 1. **Determine the Range and PMF of Transformed Variables:**
    - Identify the range $R_Y$ for the transformed variable $Y = g(X)$.
    - Calculate the probability mass function (PMF) $P_Y(y)$ for $Y$ based on the PMF of $X$.
 
-2. **Examine Different Perspectives on FRVs:**
+2. **Examine Different Perspectives:**
    - **First Perspective:** View $Y$ as a mapping from the probability space $\Omega$ to the real numbers $R_Y$.
    - **Second Perspective:** Consider $Y$ as the output of a system where $X$ is the input and $g(\cdot)$ is the transformation function.
 
