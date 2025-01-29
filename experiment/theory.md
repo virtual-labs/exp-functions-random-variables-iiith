@@ -230,7 +230,7 @@ $$ P[Y \leq y] = P[X \in C_y] $$
 If $C_y$ is empty, then the probability of $\{Y \leq y\}$ is zero.
 
 ### Input–Output Model
-When dealing with the input–output model, it is convenient to omit references to an abstract underlying experiment and deal directly with the RVs $X$ and $Y$. In this approach, the observations on $X$ are the underlying experiments, events are Borel subsets of the real line $\mathbb{R}$, and the set function $P[\cdot]$ is replaced by the distribution function $F_X(\cdot)$. Then $Y$ is a mapping (an RV) whose domain is the range $R_X$ of $X, and whose range $R_Y$ is a subset of $\mathbb{R}$. The functional properties of $X$ are ignored in favor of viewing $X$ as a mechanism that gives rise to numerically valued random phenomena. In this view, the domain of $X$ is irrelevant.
+When dealing with the input–output model, it is convenient to omit references to an abstract underlying experiment and deal directly with the RVs $X$ and $Y$. In this approach, the observations on $X$ are the underlying experiments, events are Borel subsets of the real line $\mathbb{R}$, and the set function $P[\cdot]$ is replaced by the distribution function $F_X(\cdot)$. Then $Y$ is a mapping (an RV) whose domain is the range $R_X$ of $X$, and whose range $R_Y$ is a subset of $\mathbb{R}$. The functional properties of $X$ are ignored in favor of viewing $X$ as a mechanism that gives rise to numerically valued random phenomena. In this view, the domain of $X$ is irrelevant.
 
 Additional discussion on the various views of an FRV is available in the literature.
 
