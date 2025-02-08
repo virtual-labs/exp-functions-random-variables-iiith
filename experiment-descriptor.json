@@ -35,7 +35,7 @@
     {
       "target": "continousrv.html",
       "source": "simulation/continousrv.html",
-      "label": "Functions of Random Variables",
+      "label": "Simulation",
       "unit-type": "task",
       "content-type": "simulation"
     },
