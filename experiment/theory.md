@@ -1,5 +1,3 @@
-# Functions of Random Variables
-
 If $X$ is a random variable and $Y = g(X)$, then $Y$ itself is a random variable. Consequently, we can discuss its PMF, CDF, and expected value. The range of $Y$ can be written as:
 
 $$ R_Y = \{g(x) | x \in R_X\} \quad \text{where $R_x$ is the range of $X$}$$
@@ -209,7 +207,7 @@ $$ = M_{X_1}(s) M_{X_2}(s) \cdots M_{X_n}(s) $$
 
 
 
-# Different Views of a Function of a Random Variable (FRV)
+## Different Views of a Function of a Random Variable (FRV)
 
 There are several different but essentially equivalent views of a function of a random variable (FRV). We will present two of them, highlighting their differences in emphasis.
 

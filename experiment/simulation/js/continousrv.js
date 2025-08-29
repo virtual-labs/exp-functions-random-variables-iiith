@@ -1,110 +1,162 @@
 document.addEventListener("DOMContentLoaded", function() {
-  if (typeof MathJax !== "undefined") {
-      reset();
-  } else {
-      document.getElementById("MathJax-script").onload = function() {
-          reset();
-      };
-  }
+    // Wait for MathJax to be ready before running the initial reset
+    if (typeof MathJax !== "undefined" && MathJax.startup) {
+        MathJax.startup.promise.then(initializeExperiment);
+    } else {
+        setTimeout(initializeExperiment, 500); // Fallback
+    }
 });
 
-var yaxis= document.getElementById("inputValue")
-var randomize;
+// --- GLOBAL VARIABLES ---
+let randomize;
+const yaxis = document.getElementById("inputValue");
+const observationsDiv = document.getElementById("observationValue");
+const sourcePanel = document.getElementById('source-panel');
+const dropZonePanel = document.getElementById('drop-zone-panel');
+const sourceContainer = document.getElementById('source-tile-container');
+const dropZoneContainer = document.getElementById('drop-zone-container');
+
+// --- DATA ---
+const tilesData = [
+    { id: "fx1", text: "\\(F_X(x_1)\\)" }, { id: "fx2", text: "\\(F_X(x_2)\\)" },
+    { id: "fx3", text: "\\(F_X(x_3)\\)" }, { id: "fx4", text: "\\(F_X(x_4)\\)" },
+    { id: "fx5", text: "\\(F_X(x_5)\\)" }, { id: "fx6", text: "\\(F_X(x_6)\\)" },
+    { id: "fx7", text: "\\(F_X(x_7)\\)" }, { id: "nfx1", text: "\\(-F_X(x_1)\\)" },
+    { id: "nfx2", text: "\\(-F_X(x_2)\\)" }, { id: "nfx3", text: "\\(-F_X(x_3)\\)" },
+    { id: "nfx4", text: "\\(-F_X(x_4)\\)" }, { id: "nfx5", text: "\\(-F_X(x_5)\\)" },
+    { id: "nfx6", text: "\\(-F_X(x_6)\\)" }, { id: "nfx7", text: "\\(-F_X(x_7)\\)" }
+];
+const correctAnswers = {
+    1: ["fx1"],
+    2: ["fx2", "nfx5", "fx6"],
+    3: ["fx3", "nfx4", "fx7"]
+};
+
+// --- INITIALIZATION ---
+function initializeExperiment() {
+    setupEventListeners();
+    reset();
+}
+
 function reset() {
-    randomize = Math.ceil(parseFloat(Math.random() * 3));
-    while(randomize == 0)
-      randomize = Math.ceil(parseFloat(Math.random() * 3));
-    yaxis.innerHTML = " \\( y_" + randomize +"\\)" ;
-    if (typeof MathJax !== "undefined") {
-      MathJax.typeset();
-   }
-    for (var i = 0; i < ids1.length; i++)
-      hide(ids2[i], ids1[i]);
+    randomize = Math.floor(Math.random() * 3) + 1;
+    yaxis.innerHTML = `\\( y_${randomize} \\)`;
+    
+    sourceContainer.innerHTML = '';
+    dropZoneContainer.innerHTML = '';
+    
+    createTiles();
+    
+    observationsDiv.innerHTML = "Start by building the formula for the given point.";
+    dropZonePanel.style.backgroundColor = '#e0f0e3';
 
-    obselement.innerText = "Result: "
+    if (window.MathJax) MathJax.typesetPromise();
 }
 
-var obselement = document.getElementById("observationValue");
-
-var ids1 = ["1a", "1b", "1c", "1d", "1e", "1f", "1g", "1h", "1i", "1j", "1k", "1l", "1m", "1n"];
-var ids2 = ["2a", "2b", "2c", "2d", "2e", "2f", "2g", "2h", "2i", "2j", "2k", "2l", "2m", "2n"];
-var value = [ "\\(F(x_1)\\)", "\\(F(x_2)\\)", "\\(F(x_3)\\)", "\\(F(x_4)\\)", "\\(F(x_5)\\)", "\\(F(x_6)\\)", "\\(F(x_7)\\)", "\\(-F(x_1)\\)", "\\(-F(x_2)\\)", "\\(-F(x_3)\\)", "\\(-F(x_4)\\)", "\\(-F(x_5)\\)", "\\(-F(x_6)\\)", "\\(-F(x_7)\\)",];
-
-
-function hide(id1, id2) {
-  id1 = document.getElementById(id1);
-  id2 = document.getElementById(id2);
-  id2.style.display = "flex";
-  id1.style.display = "none";
+function createTiles() {
+    // Shuffle tiles for randomness before creating them
+    tilesData.sort(() => Math.random() - 0.5).forEach(tileData => {
+        const tileEl = document.createElement('div');
+        tileEl.className = 'tile';
+        tileEl.id = tileData.id;
+        tileEl.draggable = true;
+        tileEl.innerHTML = tileData.text;
+        sourceContainer.appendChild(tileEl);
+    });
 }
 
+// --- CORE LOGIC ---
 function check() {
-  var ansArray = [];
-  for (var i = 0; i < ids1.length / 2; i++) {
-      var element = document.getElementById(ids1[i]);
-      var displayStyle = window.getComputedStyle(element).display;
-      var minuselement = document.getElementById(ids1[i + 7]);
-      var minusdisplayStyle = window.getComputedStyle(minuselement).display;
-      if (!(displayStyle === "none" && minusdisplayStyle == "none")) {
-          if (displayStyle == "none")
-              ansArray.push(i);
-          else if (minusdisplayStyle == "none")
-              ansArray.push(i + 7);
-      }
-  }
-  obselement.innerHTML = "Result: ";
-  updateObservation(ansArray);
-  checkAnswer(ansArray);
-  if (typeof MathJax !== "undefined")
-      MathJax.typesetPromise();
-}
+    const droppedTileIDs = Array.from(dropZoneContainer.querySelectorAll('.tile')).map(t => t.id);
+    const correctAnsIDs = correctAnswers[randomize];
+    
+    // Sort both arrays to compare them regardless of the order the user dropped them in
+    const isCorrect = droppedTileIDs.length === correctAnsIDs.length &&
+                      [...droppedTileIDs].sort().every((id, index) => id === [...correctAnsIDs].sort()[index]);
 
-function updateObservation(ansArray) {
-  if (ansArray.length == 0) {
-      alert("Either none of the answers were selected or the selected options cancelled out each other. Try again");
-      reset();
-  } else {
-      var tempObs = "";
-      for (var i = 0; i < ansArray.length; i++)
-          tempObs += value[ansArray[i]].toString() + " + ";
-      tempObs = tempObs.slice(0, -3);
-      obselement.innerHTML += tempObs;
-  }
-}
-
-function checkAnswer(ansArray) {
-  // Define correct answers for each value of randomize
-  const correctAnswers = [
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // For randomize == 1
-    [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0], // For randomize == 2
-    [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0]  // For randomize == 3
-  ];
-
-  // Select the correct answer array based on the randomize value
-  const ans = correctAnswers[randomize - 1];
-  let flag = 0;
-
-  // Check if any incorrect elements are chosen
-  for (let i = 0; i < ansArray.length; i++) {
-    if (ans[ansArray[i]] == 0) {
-      flag = 1;
+    if (isCorrect) {
+        dropZonePanel.style.backgroundColor = '#d4edda'; // Green for correct
+        observationsDiv.innerHTML = `<p style="color:green; font-weight:bold;">✅ CORRECT!</p>` + getExplanation(randomize);
     } else {
-      ans[ansArray[i]] = 0;
+        dropZonePanel.style.backgroundColor = '#f8d7da'; // Red for incorrect
+        observationsDiv.innerHTML = `<p style="color:red; font-weight:bold;">❌ INCORRECT.</p><p>The formula is not correct. Review the graph to find all regions on the x-axis where g(X) is less than or equal to y_${randomize}, and then express the probability of those regions.</p>`;
     }
-  }
 
-  // Check if a subset is chosen but not the full answer
-  for (let i = 0; i < ans.length; i++) {
-    if (ans[i] == 1) {
-      flag = 1;
+    if (window.MathJax) MathJax.typesetPromise();
+}
+
+function getExplanation(caseNum) {
+    if (caseNum === 1) {
+        return `<p><b>Explanation for y₁:</b></p>
+        <p>The set of x-values where \(g(X) \\le y_1\) is the interval \((-\\infty, x_1]\). The probability of this set is given directly by the definition of the CDF:</p>
+        <p>\( P(X \\le x_1) = F_X(x_1) \)</p>`;
     }
-  }
+    if (caseNum === 2) {
+        return `<p><b>Explanation for y₂:</b></p>
+        <p>The set where \(g(X) \\le y_2\) consists of two disjoint intervals: \((-\\infty, x_2]\) and \([x_5, x_6]\). The total probability is the sum of their individual probabilities:</p>
+        <p>\( P(X \\le x_2) + P(x_5 \\le X \\le x_6) \)</p>
+        <p>This is expressed using the CDF as:</p>
+        <p>\( F_X(x_2) + (F_X(x_6) - F_X(x_5)) \)</p>`;
+    }
+    if (caseNum === 3) {
+        return `<p><b>Explanation for y₃:</b></p>
+        <p>The set where \(g(X) \\le y_3\) consists of two disjoint intervals: \((-\\infty, x_3]\) and \([x_4, x_7]\). The total probability is the sum:</p>
+        <p>\( P(X \\le x_3) + P(x_4 \\le X \\le x_7) \)</p>
+        <p>This is expressed using the CDF as:</p>
+        <p>\( F_X(x_3) + (F_X(x_7) - F_X(x_4)) \)</p>`;
+    }
+    return "";
+}
 
-  // Determine the result based on the flag
-  if (flag == 1) {
-    obselement.innerHTML += " <br> INCORRECT ANS!";
-  } else {
-    let tempObs = ansArray.map(index => value[index]).join(" + ");
-    obselement.innerHTML += `<br> CORRECT ANS! The CDF of g(x) at \\( y_${randomize} \\) is \\(F(y_${randomize}) \\) = ${tempObs}`;
-  }
+// --- EVENT LISTENERS ---
+function setupEventListeners() {
+    // Click-to-move functionality using event delegation
+    document.body.addEventListener('click', e => {
+        const tile = e.target.closest('.tile');
+        if (!tile) return;
+
+        const parentContainer = tile.parentElement;
+        if (parentContainer === sourceContainer) {
+            dropZoneContainer.appendChild(tile);
+        } else if (parentContainer === dropZoneContainer) {
+            sourceContainer.appendChild(tile);
+        }
+    });
+
+    // Drag and Drop functionality
+    document.body.addEventListener('dragstart', e => {
+        const tile = e.target.closest('.tile');
+        if (tile) {
+            tile.classList.add('dragging');
+            e.dataTransfer.setData('text/plain', tile.id);
+        }
+    });
+
+    document.body.addEventListener('dragend', e => {
+        const tile = e.target.closest('.tile');
+        if (tile) {
+            tile.classList.remove('dragging');
+        }
+    });
+
+    [sourcePanel, dropZonePanel].forEach(panel => {
+        panel.addEventListener('dragover', e => {
+            e.preventDefault();
+            panel.classList.add('drag-over');
+        });
+
+        panel.addEventListener('dragleave', () => {
+            panel.classList.remove('drag-over');
+        });
+
+        panel.addEventListener('drop', e => {
+            e.preventDefault();
+            panel.classList.remove('drag-over');
+            const id = e.dataTransfer.getData('text');
+            const draggableElement = document.getElementById(id);
+            if (draggableElement) {
+                panel.querySelector('.tile-container').appendChild(draggableElement);
+            }
+        });
+    });
 }

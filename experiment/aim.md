@@ -1,4 +1,4 @@
-# Aim of the Experiment on Functions of Random Variables
+### Aim of the Experiment on Functions of Random Variables
 
 The goal of this experiment is to explore and understand the characteristics and behavior of functions of random variables. Specifically, the experiment aims to:
 
