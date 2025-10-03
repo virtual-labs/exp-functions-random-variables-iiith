@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+\\document.addEventListener("DOMContentLoaded", function() {
     // Wait for MathJax to be ready before running the initial reset
     if (typeof MathJax !== "undefined" && MathJax.startup) {
         MathJax.startup.promise.then(initializeExperiment);
@@ -79,7 +79,7 @@ function check() {
         observationsDiv.innerHTML = `<p style="color:green; font-weight:bold;">✅ CORRECT!</p>` + getExplanation(randomize);
     } else {
         dropZonePanel.style.backgroundColor = '#f8d7da'; // Red for incorrect
-        observationsDiv.innerHTML = `<p style="color:red; font-weight:bold;">❌ INCORRECT.</p><p>The formula is not correct. Review the graph to find all regions on the x-axis where g(X) is less than or equal to y_${randomize}, and then express the probability of those regions.</p>`;
+        observationsDiv.innerHTML = `<p style="color:red; font-weight:bold;">❌ INCORRECT.</p><p>The formula is not correct. Review the graph to find all regions on the x-axis where g(X) is less than or equal to \(y_${randomize}\), and then express the probability of those regions.</p>`;
     }
 
     if (window.MathJax) MathJax.typesetPromise();

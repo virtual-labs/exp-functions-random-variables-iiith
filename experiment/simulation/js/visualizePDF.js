@@ -26,7 +26,7 @@ const functions = {
         observation: `<p>For the <b>Quadratic</b> function $$Z = X^2$$</p>
                       <ul style="list-style:disc; margin-left:20px;">
                       <li>The function is <b>many-to-one</b>. For every positive Z, there are two corresponding values of X.</li>
-                      <li>When you select an area for Z, two distinct areas are highlighted for X.</li>
+                      <li>When you select an interval for Z, two distinct intervals are highlighted for X.</li>
                       <li>The PDF of Z is highest near zero because a wide range of X values are "compressed" into a small range of Z values.</li></ul>`
     },
     exponential: {
@@ -38,7 +38,7 @@ const functions = {
         observation: `<p>For the <b>Exponential</b> function $$Z = e^X$$</p>
                       <ul style="list-style:disc; margin-left:20px;">
                       <li>This is a <b>one-to-one</b> function. Every value of Z corresponds to only one value of X.</li>
-                      <li>As you select an area for Z, a single continuous area is highlighted for X.</li>
+                      <li>As you select an interal for Z, a single continuous interval is highlighted for X.</li>
                       <li>The shape of the PDF of Z is \\(f_Z(z) = 1/(2z)\\). The probability density is higher for smaller values of Z.</li></ul>`
     }
 };
@@ -71,13 +71,13 @@ function highlightArea(z1, z2) {
         const xSlice2Points = Array.from({ length: 51 }, (_, i) => x_pos_1 + (i / 50) * (x_pos_2 - x_pos_1));
         xSlices = [...xSlice1Points, ...xSlice2Points];
 
-        obsUpdate = `<p>Area for Z between \\(${valid_z1.toFixed(3)}\\) and \\(${valid_z2.toFixed(3)}\\) corresponds to <b>two</b> areas for X:</p>
+        obsUpdate = `<p>Interval for Z between \\(${valid_z1.toFixed(3)}\\) and \\(${valid_z2.toFixed(3)}\\) corresponds to the following intervals for X:</p>
                      <p style="text-align:center;">\\([${x_neg_1.toFixed(3)}, ${x_neg_2.toFixed(3)}]\\) and \\([${x_pos_1.toFixed(3)}, ${x_pos_2.toFixed(3)}]\\).</p>`;
 
     } else if (selectedFunc === 'exponential') {
         const x1 = Math.log(valid_z1), x2 = Math.log(valid_z2);
         xSlices = Array.from({ length: 51 }, (_, i) => x1 + (i / 50) * (x2 - x1));
-        obsUpdate = `<p>Area for Z between \\(${valid_z1.toFixed(3)}\\) and \\(${valid_z2.toFixed(3)}\\) corresponds to <b>one</b> area for X:</p>
+        obsUpdate = `<p>Interval for Z between \\(${valid_z1.toFixed(3)}\\) and \\(${valid_z2.toFixed(3)}\\) corresponds the following interval for X:</p>
                      <p style="text-align:center;">\\([${x1.toFixed(3)}, ${x2.toFixed(3)}]\\).</p>`;
     }
 
