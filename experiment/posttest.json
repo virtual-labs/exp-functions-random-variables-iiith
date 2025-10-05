@@ -55,7 +55,7 @@
     {
       "question": "4. Let $X$ and $Y$ be two independent random variables where $X$ is exponentially distributed of rate $\\lambda_1$ and $Y$ is exponentially distributed of rate $\\lambda_2$. Let $Z = \\min(X, Y)$. Find the density of $Z$ given by $f_Z(a)$.",
       "answers": {
-      "a": "0" ,
+        "a": "0" ,
         "b": "$f_Z(a) = \\left\\{ \\begin{array}{ll} (\\lambda_1 - \\lambda_2)e^{-(\\lambda_1 + \\lambda_2)a} & \\text{for } a \\geq 0 \\\\ 0 & \\text{otherwise} \\end{array} \\right.$",
         "c": "$f_Z(a) = \\left\\{ \\begin{array}{ll} (\\lambda_1 + \\lambda_2)e^{-(\\lambda_1 + \\lambda_2)a} & \\text{for } a \\geq 0 \\\\ 0 & \\text{otherwise} \\end{array} \\right.$",
         "d": "$f_Z(a) = \\left\\{ \\begin{array}{ll} (\\lambda_1 + \\lambda_2)e^{-(\\lambda_1 - \\lambda_2)a} & \\text{for } a \\geq 0 \\\\ 0 & \\text{otherwise} \\end{array} \\right.$"

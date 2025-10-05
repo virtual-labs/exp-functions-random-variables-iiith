@@ -2,7 +2,7 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "1.Let $X$ be a continuous random variable with PDF $f_X(x) = \\left\\{ \\begin{array}{ll} x^2\\left(2x+\\frac{3}{2}\\right) & \\quad 0 < x \\leq 1\\ 0 & \\quad \text{otherwise} \\end{array} \\right.$",
+      "question": "1. Let $X$ be a continuous random variable with PDF: \n $$ f_X(x) = \\begin{cases} x^2\\left(2x+\\frac{3}{2}\\right) & 0 < x \\leq 1 \\\\ 0 & \\text{otherwise} \\end{cases} $$",
       "answers": {
         "a": "$\\frac{21}{36}$",
         "b": "$\\frac{61}{36}$",
@@ -10,10 +10,10 @@
         "d": " $\\frac{71}{36}$ "
       },
       "explanations": {
-        "a": "$\\text{Var}(Y)=\\text{Var}\\left(\\frac{2}{X}+3\\right)=4\\text{Var}\\left(\\frac{1}{X}\\right), \\text{Var}\\left(\\frac{1}{X}\\right)=E\\left[\\frac{1}{X^2}\\right]-(E\\left[\\frac{1}{X}\\right])^2 $ E\\left[\\frac{1}{X}\\right]=\\int_{0}^{1} x\\left(2x+\\frac{3}{2}\\right) dx =\\frac{17}{12} $ E\\left[\\frac{1}{X^2}\\right]=\\int_{0}^{1} \\left(2x+\\frac{3}{2}\\right) dx =\\frac{5}{2} \\text{Var}\\left(\\frac{1}{X}\\right)=E\\left[\\frac{1}{X^2}\\right]-(E\\left[\\frac{1}{X}\\right])^2=\\frac{71}{144} $ \\text{Var}(Y)=4\\text{Var}\\left(\\frac{1}{X}\\right)=\\frac{71}{36}$",
-        "b": "$\\text{Var}(Y)=\\text{Var}\\left(\\frac{2}{X}+3\\right)=4\\text{Var}\\left(\\frac{1}{X}\\right), \\text{Var}\\left(\\frac{1}{X}\\right)=E\\left[\\frac{1}{X^2}\\right]-(E\\left[\\frac{1}{X}\\right])^2 $ E\\left[\\frac{1}{X}\\right]=\\int_{0}^{1} x\\left(2x+\\frac{3}{2}\\right) dx =\\frac{17}{12} $ E\\left[\\frac{1}{X^2}\\right]=\\int_{0}^{1} \\left(2x+\\frac{3}{2}\\right) dx =\\frac{5}{2} \\text{Var}\\left(\\frac{1}{X}\\right)=E\\left[\\frac{1}{X^2}\\right]-(E\\left[\\frac{1}{X}\\right])^2=\\frac{71}{144} $ \\text{Var}(Y)=4\\text{Var}\\left(\\frac{1}{X}\\right)=\\frac{71}{36}$",
-        "c": "$\\text{Var}(Y)=\\text{Var}\\left(\\frac{2}{X}+3\\right)=4\\text{Var}\\left(\\frac{1}{X}\\right), \\text{Var}\\left(\\frac{1}{X}\\right)=E\\left[\\frac{1}{X^2}\\right]-(E\\left[\\frac{1}{X}\\right])^2 $ E\\left[\\frac{1}{X}\\right]=\\int_{0}^{1} x\\left(2x+\\frac{3}{2}\\right) dx =\\frac{17}{12} $ E\\left[\\frac{1}{X^2}\\right]=\\int_{0}^{1} \\left(2x+\\frac{3}{2}\\right) dx =\\frac{5}{2} \\text{Var}\\left(\\frac{1}{X}\\right)=E\\left[\\frac{1}{X^2}\\right]-(E\\left[\\frac{1}{X}\\right])^2=\\frac{71}{144} $ \\text{Var}(Y)=4\\text{Var}\\left(\\frac{1}{X}\\right)=\\frac{71}{36}$",
-        "d": "Correct answer"
+        "a": "Incorrect. This may be the result of a miscalculation in the expected values.",
+        "b": "Incorrect. Please double-check the variance formula and calculations.",
+        "c": "Incorrect. This may be the result of a miscalculation when combining the terms for the variance.",
+        "d": "Correct."
       },
       "correctAnswer": "d",
       "difficulty": "intermediate"
