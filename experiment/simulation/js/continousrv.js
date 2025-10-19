@@ -1,4 +1,4 @@
-\\document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     // Wait for MathJax to be ready before running the initial reset
     if (typeof MathJax !== "undefined" && MathJax.startup) {
         MathJax.startup.promise.then(initializeExperiment);
