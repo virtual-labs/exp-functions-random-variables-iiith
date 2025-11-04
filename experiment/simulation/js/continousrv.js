@@ -15,6 +15,7 @@ const sourcePanel = document.getElementById('source-panel');
 const dropZonePanel = document.getElementById('drop-zone-panel');
 const sourceContainer = document.getElementById('source-tile-container');
 const dropZoneContainer = document.getElementById('drop-zone-container');
+const answerFormulaTitle = document.getElementById('answer-formula-title'); // Get the title element
 
 // --- DATA ---
 const tilesData = [
@@ -42,6 +43,9 @@ function reset() {
     randomize = Math.floor(Math.random() * 3) + 1;
     yaxis.innerHTML = `\\( y_${randomize} \\)`;
     
+    // *** THIS IS THE NEW LINE ***
+    answerFormulaTitle.innerHTML = `Your Answer Formula for \\(F_Y(y_${randomize})\\)`;
+
     sourceContainer.innerHTML = '';
     dropZoneContainer.innerHTML = '';
     
