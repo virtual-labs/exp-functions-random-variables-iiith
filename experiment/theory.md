@@ -10,7 +10,7 @@ $$
 P_Y(y) = P(Y = y) = P(g(X) = y) = \sum_{x:g(x) = y} P_X(x)
 $$
 
-## Expected Value of a Function of a Random Variable (LOTUS)
+### Expected Value of a Function of a Random Variable (LOTUS)
 
 Let $X$ be a discrete random variable with PMF $P_X(x)$, and let $Y = g(X)$. Suppose we want to find $E[Y]$. One approach is to first find the PMF of $Y$ and then use the expectation formula $E[Y] = E[g(X)] = \sum_{y \in R_Y} y P_Y(y)$. However, a more convenient method is the law of the unconscious statistician (LOTUS).
 
@@ -22,7 +22,7 @@ $$
 
 This can be proved by expressing $E[Y] = E[g(X)] = \sum_{y \in R_Y} y P_Y(y)$ in terms of $P_X(x)$. Typically, using LOTUS is easier than the direct definition when we need $E[g(X)]$.
 
-## Transformations of Random Variables
+### Transformations of Random Variables
 
 For a random variable $Y$, whether discrete or continuous, and a function $g: \mathbb{R} \to \mathbb{R}$, $W = g(Y)$ is also a random variable. Its distribution (pdf), mean, variance, etc., will differ from $Y$'s. Transformations of random variables are crucial in statistics.
 
@@ -68,7 +68,7 @@ $$
 F_W(w) = P[g(Y) \leq w] = P[Y \geq g^{-1}(w)] = 1 - F_Y(g^{-1}(w))
 $$
 
-## Functions of Two Random Variables
+### Functions of Two Random Variables
 
 For two discrete random variables $X$ and $Y$, and $Z = g(X, Y)$, we can determine the PMF of $Z$ as:
 
@@ -108,7 +108,7 @@ $$
 = E[X] + E[Y]
 $$
 
-### Functions of Two Continuous Random Variables
+#### Functions of Two Continuous Random Variables
 
 For two continuous random variables $g(X, Y)$, the concepts are similar. For $E[g(X, Y)]$, we use LOTUS:
 
@@ -126,19 +126,19 @@ $$
 
 where $D = \{(x, y) | g(x, y) \leq z\}$. To find the PDF of $Z$, we differentiate $F_Z(z)$.
 
-## Different Views of a Function of a Random Variable (FRV)
+### Different Views of a Function of a Random Variable (FRV)
 
 There are several different but essentially equivalent views of a function of a random variable (FRV). We will present two of them, highlighting their differences in emphasis.
 
 Assume we have an underlying probability space $P = (\Omega, F, P)$ and a random variable $X$ defined on it. Recall that $X$ is a rule that assigns a number $X(\zeta)$ to every $\zeta \in \Omega$. $X$ transforms the $\sigma$-field of events $F$ into the Borel $\sigma$-field $B$ of sets of numbers on the real line. If $R_X$ denotes the subset of the real line reached by $X$ as $\zeta$ ranges over $\Omega$, we can regard $X$ as an ordinary function with domain $\Omega$ and range $R_X$. Now, consider a measurable real function $g(x)$ of the real variable $x$.
 
-### First View (Y: Ω → RY)
+#### First View (Y: Ω → RY)
 
 For every $\zeta \in \Omega$, we generate a number $g(X(\zeta)) = Y(\zeta)$. The rule $Y$, which generates the numbers $\{Y(\zeta)\}$ for random outcomes $\{\zeta \in \Omega\}$, is an RV with domain $\Omega$ and range $R_Y \subset \mathbb{R}$. For every Borel set of real numbers $B_Y$, the set $\{\zeta : Y(\zeta) \in B_Y\}$ is an event. Specifically, the event $\{\zeta : Y(\zeta) \leq y\}$ is equal to the event $\{\zeta : g(X(\zeta)) \leq y\}$.
 
 In this view, the emphasis is on $Y$ as a mapping from $\Omega$ to $R_Y$, with the intermediate role of $X$ being suppressed.
 
-### Second View (Input/Output Systems View)
+#### Second View (Input/Output Systems View)
 
 For every value of $X(\zeta)$ in the range $R_X$, we generate a new number $Y = g(X)$ whose range is $R_Y$. The rule $Y$, whose domain is $R_X$ and range is $R_Y$, is a function of the random variable $X$. Here, the focus is on viewing $Y$ as a mapping from one set of real numbers to another. A model for this view is to regard $X$ as the input to a system with transformation function $g(\cdot)$. For such a system, an input $x$ gets transformed to an output $y = g(x)$, and an input function $X$ gets transformed to an output function $Y = g(X)$.
 
@@ -150,7 +150,7 @@ $$
 
 If $C_y$ is empty, then the probability of $\{Y \leq y\}$ is zero.
 
-### Input–Output Model
+#### Input–Output Model
 
 When dealing with the input–output model, it is convenient to omit references to an abstract underlying experiment and deal directly with the RVs $X$ and $Y$. In this approach, the observations on $X$ are the underlying experiments, events are Borel subsets of the real line $\mathbb{R}$, and the set function $P[\cdot]$ is replaced by the distribution function $F_X(\cdot)$. Then $Y$ is a mapping (an RV) whose domain is the range $R_X$ of $X$, and whose range $R_Y$ is a subset of $\mathbb{R}$. The functional properties of $X$ are ignored in favor of viewing $X$ as a mechanism that gives rise to numerically valued random phenomena. In this view, the domain of $X$ is irrelevant.
 

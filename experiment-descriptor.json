@@ -35,7 +35,7 @@
     {
       "target": "continousrv.html",
       "source": "simulation/continousrv.html",
-      "label": "Simulation",
+      "label": "Experiments",
       "unit-type": "task",
       "content-type": "simulation"
     },
@@ -53,6 +53,5 @@
       "unit-type": "task",
       "content-type": "text"
     }
-    
   ]
 }
