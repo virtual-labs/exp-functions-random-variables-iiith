@@ -2,7 +2,7 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "1. Let $X$ be a continuous random variable with PDF: <br> $$ f_X(x) = \\begin{cases} x^2\\left(2x+\\frac{3}{2}\\right) & 0 < x \\leq 1 \\\\ 0 & \\text{otherwise} \\end{cases} $$",
+      "question": "1. Let $X$ be a continuous random variable with PDF: <br> $$ f_X(x) = \\begin{cases} x^2\\left(2x+\\frac{3}{2}\\right) & 0 < x \\leq 1 \\\\ 0 & \\text{otherwise} \\end{cases} $$ <br> Find the variance $Var(X)$.",
       "answers": {
         "a": "$\\frac{21}{36}$",
         "b": "$\\frac{61}{36}$",
