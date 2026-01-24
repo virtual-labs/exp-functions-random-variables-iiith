@@ -19,7 +19,7 @@
       "difficulty": "intermediate"
     },
     {
-      "question": "2. Let $A = XY$ denote the area and $L = 2(X + Y)$ the length of the perimeter of a rectangle with length $X$ and height $Y$, such that $X $ and $Y$ are independent, and uniformly distributed on the interval $[0, 1]$. Find  $E[A]$",
+      "question": "2. Let $A = XY$ denote the area and $L = 2(X + Y)$ the length of the perimeter of a rectangle with length $X$ and height $Y$, such that $X$ and $Y$ are independent, and uniformly distributed on the interval $[0, 1]$. Find  $E[A]$",
       "answers": {
         "a": "0.25",
         "b": "0.5",

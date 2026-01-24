@@ -1,4 +1,4 @@
-### Finding the CDF of a CRV Y based on a function of X
+### Finding the CDF of a Continuous Random Variable Y based on a function of X
 
 - A graph of $(Y = g(X))$ is shown, and a random point $(y_i)$ is chosen on the y-axis.
 - Your goal is to construct the formula for the CDF of $Y$ at that point, $(F_Y(y_i) = P(Y \le y_i))$.

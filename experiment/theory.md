@@ -1,4 +1,4 @@
-If $X$ is a random variable and $Y = g(X)$, then $Y$ itself is a random variable. Consequently, we can discuss its PMF, CDF, and expected value. The range of $Y$ can be written as:
+CRVYIf $X$ is a random variable and $Y = g(X)$, then $Y$ itself is a random variable. Consequently, we can discuss its PMF, CDF, and expected value. The range of $Y$ can be written as:
 
 $$
 R_Y = \{g(x) | x \in R_X\} \quad \text{where $R_x$ is the range of $X$}
