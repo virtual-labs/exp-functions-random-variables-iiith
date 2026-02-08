@@ -1,0 +1,377 @@
+/* --- UNIFIED STYLESHEET (style.css) --- */
+
+/* ----------------------------------------
+   Base, Header & Tab Styling
+   ---------------------------------------- */
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    padding-top: 20px;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.tasks-heading {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #444;
+}
+
+.subheading-box {
+    background-color: #f7fdf7;
+    border-left: 4px solid #3c763d;
+    padding: 0.75rem 1rem;
+    margin: 1.5rem 0;
+    border-radius: 4px;
+}
+
+.subheading-box .title {
+    color: #3c763d;
+    font-size: 1.25rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* ----------------------------------------
+   Main Content Panels & Observation Box
+   ---------------------------------------- */
+.white-boxed-panel {
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 6px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    height: 100%;
+}
+
+.v-datalist-container.components-list {
+    border: 2px solid #8dc63f;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #fafafa;
+    height: 100%;
+}
+.v-datalist-title {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    font-weight: 600;
+    color: #363636;
+}
+
+.button-holder-div {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5em;
+    padding-top: 1.5em;
+    border-top: 1px solid #eee;
+}
+
+.v-button {
+    padding: 10px 20px;
+    color: white;
+    background-color: #3273dc;
+    border: 2px solid #3273dc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+.v-button:hover {
+    background-color: #275bb0;
+}
+.v-button:disabled {
+    background-color: #b5b5b5;
+    border-color: #b5b5b5;
+    cursor: not-allowed;
+}
+
+
+/* ----------------------------------------
+   Styles for "Calculate CDF" (continousrv.html)
+   ---------------------------------------- */
+
+.question-description {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.centered-image {
+    max-width: 80%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.tile-panel {
+    margin: 1rem 0;
+    background-color: #f5f5f5;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    min-height: 5em;
+    display: flex;
+    align-items: center;
+    padding: 0.5em;
+    border-radius: 8px;
+}
+.drop-zone {
+    background-color: #e0f0e3; /* Light green to indicate drop area */
+    transition: background-color 0.3s ease;
+}
+
+.drag-over {
+    background-color: #c8e6c9 !important; /* Darker green on drag over */
+}
+
+.tile-scroll-box {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.tile-container {
+    display: inline-flex;
+    min-width: 100%;
+    padding: 0.5em 0;
+}
+
+.tile {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.5em;
+    height: 3em;
+    font-size: 0.9em;
+    text-align: center;
+    cursor: pointer; /* Changed to pointer for clickability */
+    background-color: #e3f2fd;
+    color: #1e88e5;
+    border: 2px solid #90caf9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0.5em;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+.tile:hover {
+    background-color: #bbdefb;
+    border-color: #64b5f6;
+    transform: translateY(-2px);
+}
+.tile.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ----------------------------------------
+   Responsiveness
+   ---------------------------------------- */
+@media (max-width: 1024px) {
+    .columns {
+        flex-direction: column;
+        align-items: center;
+    }
+    .column {
+        width: 90% !important;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .white-boxed-panel {
+        width: 100%;
+        padding: 1.5rem;
+    }
+    .centered-image {
+        max-width: 100%;
+    }
+}
+
+#canvas-holder {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for mobile */
+    gap: 2rem;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+/* Three columns for tablets and larger screens */
+@media (min-width: 769px) {
+    #canvas-holder {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.chart-container {
+    position: relative;
+    height: 300px; /* Set a fixed height for consistency */
+    width: 100%;
+}
+
+.chart-container h3 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #363636;
+}
+
+/* ----------------------------------------
+   Manual Input Styles
+   ---------------------------------------- */
+#manual-input-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+#manual-input-holder span {
+    font-weight: 600;
+    color: #555;
+}
+
+.v-input {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100px;
+    transition: border-color 0.3s ease;
+}
+
+.v-input:focus {
+    outline: none;
+    border-color: #3273dc;
+    box-shadow: 0 0 5px rgba(50, 115, 220, 0.25);
+}
+
+
+/* --- Additions for calculatePDF.html --- */
+
+/* Style for the user input prompt */
+#z-value-prompt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+#z-value-prompt span {
+    font-size: 1.1rem;
+}
+
+/* Ensure chart container from previous task is available */
+.chart-container {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+#question-text {
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background-color: #eef7ee;
+    border-left: 4px solid #3c763d;
+    border-radius: 4px;
+}
+
+/* --- Additions for calculatePDF.html --- */
+
+/* Style for the user input prompt */
+#z-value-prompt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+#z-value-prompt span {
+    font-size: 1.1rem;
+}
+
+.chart-container {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+#question-text {
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background-color: #eef7ee;
+    border-left: 4px solid #3c763d;
+    border-radius: 4px;
+}
+
+/* --- FIX: Styles for a well-behaved Observations Panel --- */
+
+/* Ensure columns stretch to the same height */
+.columns {
+    align-items: stretch;
+}
+
+/* Make the column a flex container so its children can grow */
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Allow the main white panel and observation panel to grow */
+.white-boxed-panel,
+.v-datalist-container.components-list {
+    flex-grow: 1; 
+}
+
+#observations {
+    padding: 0.5rem;
+    word-wrap: break-word; /* Prevents text overflow */
+}
+
+#observations p {
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+#observations hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 1rem 0;
+}

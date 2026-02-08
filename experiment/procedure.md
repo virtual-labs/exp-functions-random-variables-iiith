@@ -1,29 +1,21 @@
-# Procedure for the experiments for Functions of Random Variables experiment
+### Finding the CDF of a Continuous Random Variable Y based on a function of X
 
-## Finding the CDF of a CRV  Y based on a function of X
-- You are given a graph which plots some function $Y = g(X)$ of a random variable $X$
-- You have to build the appropriate CDF of the point $y_i$ which is generated randomly from the points $x_i$ as shown in the graph 
-- You can add the CDF values of $ x_i $ from the given list by clicking on it in the top panel.
-- You can remove the CDF values of $x_i$ from the given list by  clicking on it in the bottom panel.
-- Once you have built the answer, click on the submit button to check your answer.
+- A graph of $(Y = g(X))$ is shown, and a random point $(y_i)$ is chosen on the y-axis.
+- Your goal is to construct the formula for the CDF of $Y$ at that point, $(F_Y(y_i) = P(Y \le y_i))$.
+- First, find the setofall x-values for which $(g(X) \le y_i)$.
+- Then, express the probability of this setusing the CDF of $X$, $(F_X(x))$.
 
+### Visualize PDF of a Function of RV
 
-## Visualize the PDF of function of a RV
+- Let $X$ be a Uniform random variable on [-1, 1]. Its PDF is shown in the first graph.
+- Select a function to visualize: **Quadratic** $(Z = X^2)$ or **Exponential** $(Z = e^X)$.
+- Three graphs will appear, the transformation function $(g(X))$, the original PDF of X, and the resulting PDF of $Z$.
+- Click on the **PDF of $Z$** graph to highlight a region.
+- Alternatively, type a start and end value in the **Highlight $Z$ Range** panel to see the charts update in real-time.
 
-- You are given a Uniform Random Variable $X$, with its pdf plotted.
-- Another random variable $Z$ is defined as $Z=g(X)$ where $g$ can be either an exponential function or a quadratic function.
-- After choosing a function for $g$, you can view how the pdf of $Z$ will look like. 
-- More over, you can select any point at the pdf of $Z$ and view its corresponding point in the pdf of $X$, which can be obtained via the funtion $g$.
-- In addition to this, the area of the plot highlighted in pink shows the cdf of $Z$ at the chosen point, and corresponding area is displayed for $X$ too.
+### Calculate PDF of a function of multiple RVs
 
-
-
-## Calculate PDF of function of multiple RVs
-
-- You are given two random variables (i.e. X and Y) and their respective PDFs.
-- Then, you are given another random variable Z which is a function of X and Y.
-- Your task is to find the pdf of this function of multiple random variables (ie. Z).
-- When you click on start, you you will be asked to enter the PDF value at a particular Z value.
-- When you enter the value, that will be plotted in the graph and you will be asked to enter the PDF value at another value of Z. This will be done for 5 different values of Z.
-After that, the actual PDF will be shown and you will be able to see how the values you entered and the actual PDF are different.
-- Check observations to see the difference between the values you entered and the actual PDF. The precision checked is upto 4 decimal places.
+- Two problems are provided. Use the **Next** and **Prev** buttons to switch between them.
+- Press **START** to begin. You will be prompted to enter the value of the PDF, $(f_Z(z))$, for 5 random values of $(z)$.
+- Submit each value by clicking the button or pressing **Enter**. Your point will be plotted on the graph.
+- Once all 5 points are entered, the complete, correct PDF of $Z$ will be plotted for comparison.
