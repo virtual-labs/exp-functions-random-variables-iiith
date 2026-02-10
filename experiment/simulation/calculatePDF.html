@@ -1,128 +1,100 @@
 <!DOCTYPE html>
-<html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
-	<link rel="stylesheet" href="./css/calculatePDF.css">
-	<link rel="stylesheet" href="./css/main.css">
-	<script type="text/javascript" id="MathJax-script" async
-		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-	<title>
-		Calculate PDF
-	</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Calculate PDF</title>
 </head>
-
 <body>
+    <div class="container">
+        <!-- Header and Tabs -->
+        <div class="columns is-centered">
+            <div class="column is-full"><h2 class="tasks-heading">Tasks</h2></div>
+        </div>
+        <div class="columns is-centered">
+            <div class="column">
+                <div class="v-tabs">
+                    <ul>
+                        <li onclick="window.location.href = 'continousrv.html';"><a>Sub Experiment - 1</a></li>
+                        <li onclick="window.location.href = 'visualizePDF.html';"><a>Sub Experiment - 2</a></li>
+                        <li class="is-active"><a>Sub Experiment - 3</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="subheading-box">
+            <h3 class="title">Calculate PDF of a Function of Multiple Random Variables</h3>
+        </div>
 
-	<div class="container">
+        <!-- Instructions -->
+        <div class="columns is-centered">
+            <div class="column">
+                <div class="v-collapsible-instruction-container v-instruction-container">
+                    <div class="v-collapsible is-size-5">Instructions</div>
+                    <div class="v-content" style="text-align: left; padding: 0 10%;">
+                        <ul style="list-style: disc; margin-bottom: 10px;">
+                            <li>Two problems are provided. Use the "Next" and "Prev" buttons to switch between them.</li>
+                            <li>Press <b>START</b> to begin. You will be prompted to enter the value of the PDF, \(f_Z(z)\), for 5 random values of \(z\).</li>
+                            <li>Submit each value by clicking the button or pressing <b>Enter</b>. Your point will be plotted on the graph.</li>
+                            <li>Once all 5 points are entered, the complete, correct PDF of Z will be plotted for comparison.</li>
+                            <li>Check the <b>Observations</b> panel for a detailed analysis of your answers.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <section>
+            <div class="columns is-centered">
+                <!-- Experiment Panel -->
+                <div class="column is-8-desktop is-9-tablet">
+                    <div class="white-boxed-panel">
+                        <div id="question-text">
+                            Find the PDF of Z = X+Y where X and Y are independent uniform random variables on the interval [0,1].
+                        </div>
 
+                        <div class="button-holder-div" style="border:none; padding-top:0.5rem; margin-top:0;">
+                            <button class="v-button" role="button" id="start-button">START</button>
+                        </div>
 
-		<div class="columns is-centered">
-			<div class="columns is-centered">
-				<div class="column is-one-quarter v-instruction-title">
-					Tasks
-				</div>
-				<div class="column">
-					<div class="v-tabs">
-						<ul>							
-							<li id="Task1" onclick="window.location.href = 'continousrv.html';">
-								<a>Sigma Algebra</a>
-							</li>
-							<li id="Task3" onclick="window.location.href = 'visualizePDF.html';">
-								<a>
-									Visualize PDF of function of RV
-								</a>
-							</li>
-							<li class="is-active" id="Task2">
-								<a>
-									Calculate PDF of funcion of Multiple RV
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+                        <div id="z-value-prompt" style="display: none;">
+                            <span>Enter PDF value at Z = <b id="current-z-value"></span>
+                            <input type="number" id="pdf-z-value" class="v-input" step="any" placeholder="f_Z(z) value" aria-label="PDF value input" required>
+                            <button id="submit-z-value" class="v-button">Submit</button>
+                            <p id="input-error" style="color: red; display: none; margin-top: 5px; width: 100%; text-align: center;">Please enter a valid number.</p>
+                        </div>
 
-		<div class="columns is-centered">
+                        <div class="chart-container" style="display: none;">
+                             <canvas id="pdf-chart"></canvas>
+                        </div>
 
-			<div class="column">
-				<div class="v-collapsible-instruction-container v-instruction-container">
-					<div class="v-collapsible is-size-5">Instructions</div>
-					<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
-						<ul style="list-style: disc;">
-							<b>Quick theory overview:</b>
-							<ul style="list-style: disc;">
-								<li>
-
-								</li>
-								<b>Procedure:</b>
-								<li>
-								</li>
-							</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<br>
-
-	<section id="page1">
-		<div class="columns is-centered">
-			<div class="column is-11-desktop is-12-tablet is-12-mobile">
-				<div class="v-datalist-container components-list">
-					<br>
-					<p id="question-text">
-						Find the PDF of Z = X+Y where X and Y are independent uniform random variables on the interval [0,1].
-					</p>
-					<br>
-				</div>
-			</div>
-		</div>
-
-		<div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
-			style="margin-top:-1.5%">
-			<div class="column is-8-desktop is-12-tablet is-12-mobile">
-				<div class="box-question">
-					<div class="button-holder-div">
-						<button class="v-button" role="button" id="start-button"
-							onclick="startExperimentClick()">START</button>
-					</div>
-					<div id="z-value-prompt">
-						<h2>Enter PDF value at Z = <span id="current-z-value"></span></h2>
-						<input type="number" id="pdf-z-value" step="any" placeholder="PDF value" required>
-						<button id="submit-z-value">Submit</button>
-					</div>
-
-					<canvas id="pdf-chart"></canvas>
-
-					<div class="button-holder-div">
-						<button class="v-button" role="button" onclick="changeQuestion(1)" id="prev-question-button"
-							style="display: none;"> Prev </button>
-						<button class="v-button" role="button" onclick="reset()" id="reset-button"> Reset </button>
-						<button class="v-button" role="button" onclick="changeQuestion(2)" id="next-question-button">
-							Next </button>
-					</div>
-				</div>
-			</div>
-
-			<div class="column is-3-desktop is-4-tablet is-12-mobile">
-				<div class="v-datalist-container components-list">
-					<div class="v-datalist-title">Observations</div>
-					<div id="observations">
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="./js/calculatePDF.js"></script>
+                        <div class="button-holder-div">
+                            <button class="v-button" role="button" id="prev-question-button" style="display: none;">Prev</button>
+                            <button class="v-button" role="button" id="reset-button">Reset</button>
+                            <button class="v-button" role="button" id="next-question-button">Next</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Observations Panel -->
+                <div class="column is-12-desktop is-12-tablet">
+                    <div class="v-datalist-container components-list">
+                        <div class="v-datalist-title">Observations</div>
+                        <div id="observations" style="text-align: left; width: 100%;">
+                            <p>Your results will be displayed here after the experiment is complete.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
+    <script src="./js/calculatePDF.js"></script>
 </body>
-
 </html>

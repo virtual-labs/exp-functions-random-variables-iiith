@@ -20,7 +20,7 @@
     },
     {
       "unit-type": "task",
-      "label": "Pretest",
+      "label": "Pre-test",
       "content-type": "assesment",
       "source": "pretest.json",
       "target": "pretest.html"
@@ -35,13 +35,13 @@
     {
       "target": "continousrv.html",
       "source": "simulation/continousrv.html",
-      "label": "Functions of Random Variables",
+      "label": "Experiments",
       "unit-type": "task",
       "content-type": "simulation"
     },
     {
       "unit-type": "task",
-      "label": "Posttest",
+      "label": "Post-test",
       "content-type": "assesment",
       "source": "posttest.json",
       "target": "posttest.html"
@@ -53,6 +53,5 @@
       "unit-type": "task",
       "content-type": "text"
     }
-    
   ]
 }

@@ -1,133 +1,107 @@
 <!DOCTYPE html>
-<html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
-	<link rel="stylesheet" href="./css/visualizePDF.css">
-	<link rel="stylesheet" href="./css/main.css">
-	<!-- <script type="text/javascript" id="MathJax-script" async
-		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script> -->
-	<title>
-		Bernoulli RV
-	</title>
-</head>
-
-<body>
-
-	<div class="container">
-
-
-		<div class="columns is-centered">
-			<div class="columns is-centered">
-				<div class="column is-one-quarter v-instruction-title">
-					Tasks
-				</div>
-				<div class="column">
-					<div class="v-tabs">
-						<ul>
-							<li id="Task1" onclick="window.location.href = 'continousrv.html';">
-								<a>Sigma Algebra</a>
-							</li>
-							<li class="is-active" id="Task3">
-								<a>
-									Visualize PDF of function of RV
-								</a>
-							</li>
-							<li id="Task2" onclick="window.location.href = 'calculatePDF.html';">
-								<a>
-									Calculate PDF of funcion of Multiple RV
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="columns is-centered">
-
-			<div class="column">
-				<div class="v-collapsible-instruction-container v-instruction-container">
-					<div class="v-collapsible is-size-5">Instructions</div>
-					<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
-						<ul style="list-style: disc;">
-							<b>Quick theory overview:</b>
-							<ul style="list-style: disc;">
-								<li>
-									
-								</li>
-								<b>Procedure:</b>
-								<li>									
-								</li>
-							</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<br>
-
-	<section id="page1">
-		<div class="columns is-centered">
-			<div class="column is-11-desktop is-12-tablet is-12-mobile">
-				<div class="v-datalist-container components-list">
-					<br>
-					<p>
-						Question
-					</p>
-					<br>
-				</div>
-			</div>
-		</div>
-
-		<div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
-			style="margin-top:-1.5%">
-			<div class="column is-8-desktop is-12-tablet is-12-mobile">
-				<div class="box-question">
-                    <div id="select-function">
-                        <button class="v-button" role="button" id="quadratic-select-button" onclick="selectQuadratic()">Quadratic</button>
-                        <button class="v-button" role="button" id="exponential-select-button" onclick="selectExponential()">Exponential</button>
-                    </div>
-
-                    <div id="canvas-holder">
-                        <div>
-                            <h2>Z = g(X)</h2>
-                            <canvas id="transformationChart"></canvas>
-                        </div>
-                        <div>
-                            <h2>PDF of X</h2>
-                            <canvas id="pdfXChart"></canvas>
-                        </div>
-                        <div>
-                            <h2>PDF of Z</h2>
-                            <canvas id="pdfZChart"></canvas>
-                        </div>
-                    </div>
-                    
-                    <div class="button-holder-div">
-						<button class="v-button" role="button" onclick="reset()" id="reset-button"> Reset </button>
-						<!-- <button class="v-button" role="button" onclick="page2()"> Next </button> -->
-					</div>
-				</div>
-			</div>
-
-			<!-- <div class="column is-3-desktop is-4-tablet is-12-mobile">
-				<div class="v-datalist-container components-list">
-					<div class="v-datalist-title">Observations</div>
-					<div id="observations">
-					</div>
-				</div>
-			</div> -->
-		</div>
-	</section>
-
-	<script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="./js/visualizePDF.js"></script>
-</body>
+    <title>Visualize Functions of RVs</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Header and Tabs -->
+        <div class="columns is-centered">
+            <div class="column is-full"><h2 class="tasks-heading">Tasks</h2></div>
+        </div>
+        <div class="columns is-centered">
+            <div class="column">
+                <div class="v-tabs">
+                    <ul>
+                        <li onclick="window.location.href = 'continousrv.html';"><a>Sub Experiment - 1</a></li>
+                        <li class="is-active"><a>Sub Experiment - 2</a></li>
+						<li onclick="window.location.href = 'calculatePDF.html';"><a>Sub Experiment - 3</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="subheading-box">
+            <h3 class="title">Visualize PDF of a Function of a Random Variable</h3>
+        </div>
 
+        <!-- Instructions -->
+        <div class="columns is-centered">
+            <div class="column">
+                <div class="v-collapsible-instruction-container v-instruction-container">
+                    <div class="v-collapsible is-size-5">Instructions</div>
+                    <div class="v-content" style="text-align: left; padding: 0 10%;">
+                        <ul style="list-style: disc; margin-bottom: 10px;">
+                            <li>Let X be a Uniform random variable on [-1, 1]. Its PDF is shown in the first graph.</li>
+                            <li>Select a function to visualize: <b>Quadratic</b> (\(Z = X^2\)) or <b>Exponential</b> (\(Z = e^X\)).</li>
+                            <li>Three graphs will appear: the transformation function \(g(X)\), the original PDF of X, and the resulting PDF of Z.</li>
+                            <li><b>Interact with the plots!</b> Click on the "PDF of Z" graph to highlight a region.</li>
+                            <li>Alternatively, type a start and end value in the "Highlight Z Range" panel to see the charts update in real-time.</li>
+                            <li>Observe how the corresponding area(s) are highlighted on the "PDF of X" graph.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <section>
+            <div class="columns is-centered">
+                <!-- Experiment Panel -->
+                <div class="column is-8-desktop is-9-tablet">
+                    <div class="white-boxed-panel">
+                        <div id="select-function">
+                            <button class="v-button" role="button" id="quadratic-select-button" onclick="selectFunction('quadratic')">Quadratic (Z = X²)</button>
+                            <button class="v-button" role="button" id="exponential-select-button" onclick="selectFunction('exponential')">Exponential (Z = eˣ)</button>
+                        </div>
+
+                        <div id="manual-input-holder" style="display: none;">
+                            <span>Highlight Z Range:</span>
+                            <input type="number" id="z1-input" class="v-input" placeholder="start" step="0.01" aria-label="Highlight range start">
+                            <span>to</span>
+                            <input type="number" id="z2-input" class="v-input" placeholder="end" step="0.01" aria-label="Highlight range end">
+                        </div>
+
+                        <div id="canvas-holder" style="display: none;">
+                            <div class="chart-container">
+                                <h3>Transformation: Z = g(X)</h3>
+                                <canvas id="transformationChart"></canvas>
+                            </div>
+                            <div class="chart-container">
+                                <h3>PDF of X</h3>
+                                <canvas id="pdfXChart"></canvas>
+                            </div>
+                            <div class="chart-container">
+                                <h3>PDF of Z</h3>
+                                <canvas id="pdfZChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="button-holder-div">
+                            <button class="v-button" role="button" onclick="reset()" id="reset-button" style="display: none;">Reset</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Observations Panel -->
+                <div class="column is-3-desktop is-12-tablet">
+                    <div class="v-datalist-container components-list">
+                        <div class="v-datalist-title">Observations</div>
+                        <div id="observations" style="text-align: left; width: 100%; padding: 5px;">
+                            <p>Select a function to begin and see observations here.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
+    <script src="./js/visualizePDF.js"></script>
+</body>
 </html>
