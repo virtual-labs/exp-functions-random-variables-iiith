@@ -1,0 +1,274 @@
+/* --- UNIFIED STYLESHEET (main.css) --- */
+
+/* ----------------------------------------
+   Base & General Styling
+   ---------------------------------------- */
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f7f6;
+}
+
+.container {
+    padding-top: 20px;
+}
+
+/* ----------------------------------------
+   Unified Tab Navigation
+   ---------------------------------------- */
+.v-tabs ul {
+    border-bottom: 2px solid #ddd;
+}
+
+.v-tabs li.is-active a {
+    border-bottom: 3px solid #5a8f7b; /* A color that fits the theme */
+    color: #363636;
+    font-weight: 600;
+}
+
+/* ----------------------------------------
+   Unified Instruction Panel
+   ---------------------------------------- */
+.v-collapsible-instruction-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.v-collapsible {
+    font-weight: 600;
+    color: #363636;
+}
+
+.v-content b {
+    color: #363636;
+}
+
+/* ----------------------------------------
+   Main Content Panel
+   ---------------------------------------- */
+.box-question {
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+    margin-top: 1rem;
+}
+
+/* ----------------------------------------
+   Observation & Data Panel
+   ---------------------------------------- */
+.v-datalist-container.components-list {
+    border: 1px solid #a3bca6;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #fafffa;
+    height: 100%;
+}
+
+.v-datalist-title {
+    text-align: center;
+    font-weight: 600;
+    color: #363636;
+    font-size: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #eee;
+}
+
+#observations,
+#observationValue {
+    font-size: 1.1em;
+    padding-top: 1rem;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+/* ----------------------------------------
+   Experiment-Specific Styles
+   ---------------------------------------- */
+
+/* --- continousrv.html --- */
+.questionContainer {
+    border: 2px solid #5a8f7b;
+    border-radius: 10px;
+    text-align: center;
+    padding: 1em;
+    background-color: #fafffa;
+    font-size: 1.1em;
+    margin-bottom: 1em;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.centered-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#top-bar-1,
+#top-bar-2,
+#top-bar-3,
+#drop-panel-1,
+#drop-panel-2,
+#drop-panel-3 {
+    margin: 0.5em 0;
+    background-color: #f5f5f5;
+    box-shadow: inset 0 0.1em 0.4em rgba(0, 0, 0, 0.1);
+    min-height: 7em;
+    display: flex;
+    align-items: center;
+    padding: 0.5em;
+    border-radius: 8px;
+}
+
+.scroll-box-1, .scroll-box-2, .scroll-box-3, .scroll-box-4, .scroll-box-5, .scroll-box-6 {
+    overflow-x: auto;
+    width: 100%;
+}
+
+#tile-container-1, #tile-container-2, #tile-container-3, #tile-container-4, #tile-container-5, #tile-container-6 {
+    display: inline-flex;
+    padding: 0.5em 0;
+}
+
+.tile,
+.tile2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 6.5em;
+    height: 3em;
+    padding: 0.25em;
+    font-size: 0.9em;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 0.1em 0.4em rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    margin: 0.5em;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.tile {
+    background-color: bisque;
+    color: black;
+    border: 1px solid #d3b89b;
+}
+
+.tile:hover {
+    background-color: black;
+    color: bisque;
+    transform: translateY(-2px);
+}
+
+.tile2 {
+    background-color: black;
+    color: bisque;
+    border: 1px solid #333;
+}
+
+.tile2:hover {
+    background-color: bisque;
+    color: black;
+    transform: translateY(-2px);
+}
+
+
+/* --- calculatePDF.html & visualizePDF.html --- */
+#question-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    color: #3c763d;
+    background-color: #fafffa;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e0f0e3;
+}
+
+.button-holder-div {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+
+#z-value-prompt {
+    text-align: center;
+    margin: 1.5em 0;
+}
+#z-value-prompt h2 {
+    margin-bottom: 0.5em;
+}
+#z-value-prompt input[type="number"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 0.5em;
+}
+#submit-z-value {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #5a8f7b;
+    color: white;
+    cursor: pointer;
+}
+#submit-z-value:hover {
+    background-color: #4a7565;
+}
+
+
+/* --- visualizePDF.html --- */
+#select-function {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-bottom: 1.5em;
+}
+
+#canvas-holder {
+    display: none; /* Hidden by default */
+    grid-template-columns: 1fr;
+    gap: 2em;
+    padding: 1em 0;
+}
+
+#canvas-holder h2 {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+}
+
+/* Use grid for better layout on larger screens */
+@media screen and (min-width: 992px) {
+    #canvas-holder {
+        grid-template-columns: repeat(3, 1fr);
+        display: grid; /* Display as grid only on large screens */
+    }
+}
+
+
+/* ----------------------------------------
+   Responsiveness
+   ---------------------------------------- */
+@media screen and (max-width: 768px) {
+    .v-tabs ul {
+        justify-content: center;
+    }
+    #observations, #observationValue {
+        font-size: 1em;
+    }
+}

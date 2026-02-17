@@ -1,0 +1,49 @@
+
+/home/runner/work/exp-functions-random-variables-iiith/exp-functions-random-variables-iiith/experiment/simulation/js/calculatePDF.js
+  55:21  warning  'Chart' is not defined  no-undef
+
+/home/runner/work/exp-functions-random-variables-iiith/exp-functions-random-variables-iiith/experiment/simulation/js/continousrv.js
+    3:43   warning  'MathJax' is not defined           no-undef
+    4:9    warning  'MathJax' is not defined           no-undef
+   57:25   warning  'MathJax' is not defined           no-undef
+   73:10   warning  'check' is defined but never used  no-unused-vars
+   86:212  warning  Unnecessary escape character: \(   no-useless-escape
+   86:228  warning  Unnecessary escape character: \)   no-useless-escape
+   89:25   warning  'MathJax' is not defined           no-undef
+   95:38   warning  Unnecessary escape character: \(   no-useless-escape
+   95:53   warning  Unnecessary escape character: \)   no-useless-escape
+   95:72   warning  Unnecessary escape character: \(   no-useless-escape
+   95:89   warning  Unnecessary escape character: \)   no-useless-escape
+   96:12   warning  Unnecessary escape character: \(   no-useless-escape
+   96:40   warning  Unnecessary escape character: \)   no-useless-escape
+  100:26   warning  Unnecessary escape character: \(   no-useless-escape
+  100:41   warning  Unnecessary escape character: \)   no-useless-escape
+  100:80   warning  Unnecessary escape character: \(   no-useless-escape
+  100:97   warning  Unnecessary escape character: \)   no-useless-escape
+  100:104  warning  Unnecessary escape character: \(   no-useless-escape
+  100:116  warning  Unnecessary escape character: \)   no-useless-escape
+  101:12   warning  Unnecessary escape character: \(   no-useless-escape
+  101:54   warning  Unnecessary escape character: \)   no-useless-escape
+  103:12   warning  Unnecessary escape character: \(   no-useless-escape
+  103:48   warning  Unnecessary escape character: \)   no-useless-escape
+  107:26   warning  Unnecessary escape character: \(   no-useless-escape
+  107:41   warning  Unnecessary escape character: \)   no-useless-escape
+  107:80   warning  Unnecessary escape character: \(   no-useless-escape
+  107:97   warning  Unnecessary escape character: \)   no-useless-escape
+  107:104  warning  Unnecessary escape character: \(   no-useless-escape
+  107:116  warning  Unnecessary escape character: \)   no-useless-escape
+  108:12   warning  Unnecessary escape character: \(   no-useless-escape
+  108:54   warning  Unnecessary escape character: \)   no-useless-escape
+  110:12   warning  Unnecessary escape character: \(   no-useless-escape
+  110:48   warning  Unnecessary escape character: \)   no-useless-escape
+
+/home/runner/work/exp-functions-random-variables-iiith/exp-functions-random-variables-iiith/experiment/simulation/js/visualizePDF.js
+   89:25  warning  'MathJax' is not defined                    no-undef
+  113:21  warning  'Chart' is not defined                      no-undef
+  114:21  warning  'Chart' is not defined                      no-undef
+  115:31  warning  'Chart' is not defined                      no-undef
+  157:10  warning  'selectFunction' is defined but never used  no-unused-vars
+  191:25  warning  'MathJax' is not defined                    no-undef
+
+✖ 40 problems (0 errors, 40 warnings)
+
