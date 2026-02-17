@@ -19,7 +19,7 @@
       "difficulty": "intermediate"
     },
     {
-      "question": "2. Let $A = XY$ denote the area and $L = 2(X + Y)$ the length of the perimeter of a rectangle with length $X$ and height $Y$, such that $X$ and $Y$ are independent, and uniformly distributed on the interval $[0, 1]$. Find  $E[A]$",
+      "question": "2. Let $A = XY$ denote the area and $L = 2(X + Y)$ the length of the perimeter of a rectangle with length $X$ and height $Y$, such that $X$ and $Y$ are independent, and uniformly distributed on the interval $[0, 1]$. Find  $\\mathbb{E}[A]$",
       "answers": {
         "a": "0.25",
         "b": "0.5",
@@ -36,7 +36,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "3. Let X be the outcome of a single roll of a fair six-sided die. What is the expected value of the random variable Y = 2X + 1?",
+      "question": "3. Let X be the outcome of a single roll of a fair six-sided die. What is the expected value of the random variable $Y = 2X + 1$?",
       "answers": {
         "a": "3.5",
         "b": "7",
@@ -53,7 +53,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "4. Let X be a continuous random variable uniformly distributed on the interval [0, 1]. Find the expected value, E[Y], for the random variable Y = X².",
+      "question": "4. Let $X$ be a continuous random variable uniformly distributed on the interval $[0, 1]$. Find the expected value, $\\mathbb{E}[Y]$, for the random variable $Y = X^2$.",
       "answers": {
         "a": "1/2",
         "b": "1/4",
